@@ -335,7 +335,9 @@
             body: JSON.stringify({ plan: btn.dataset.plan })
           }).catch(() => null);
           const body = res ? await res.json().catch(() => ({})) : {};
-          if (res?.ok && body.url) return location.assign(body.url);
+          // Only ever leave the site for PayPlus's own payment pages.
+          const payUrl = (() => { try { return new URL(body.url); } catch { return null; } })();
+          if (res?.ok && payUrl?.protocol === "https:" && /(^|\.)payplus\.co\.il$/.test(payUrl.hostname)) return location.assign(payUrl.href);
           btn.disabled = false;
           const type = body?.error?.type;
           say($("payMsg"), "error", type === "payments_closed" || !res ? t("paySoon")
