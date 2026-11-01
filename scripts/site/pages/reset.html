@@ -1,0 +1,16 @@
+{"he": "סיסמה חדשה · Pointy", "en": "New password · Pointy", "noindex": true, "scripts": ["vendor/supabase/supabase.js", "assets/config.js", "assets/auth.js"]}
+<div class="card" data-page="reset">
+  <form id="resetForm" novalidate>
+    <h1><span lang="he">בחירת סיסמה חדשה</span><span lang="en">Choose a new password</span></h1>
+    <div class="field">
+      <label for="password"><span lang="he">סיסמה חדשה</span><span lang="en">New password</span></label>
+      <div class="pw-row">
+        <input id="password" type="password" autocomplete="new-password" required minlength="10" maxlength="72" dir="ltr" aria-describedby="pwHint">
+        <button class="chip pw-toggle" type="button" data-toggle-pw="password" aria-pressed="false" aria-label="Show password"><i class="ph ph-eye" aria-hidden="true"></i></button>
+      </div>
+      <p class="hint" id="pwHint"><span lang="he">לפחות 10 תווים.</span><span lang="en">At least 10 characters.</span></p>
+    </div>
+    <button class="btn btn-primary" id="submit" type="submit"><span lang="he">שמירה</span><span lang="en">Save password</span></button>
+    <p class="form-msg" id="msg" role="alert" aria-live="assertive"></p>
+  </form>
+</div>

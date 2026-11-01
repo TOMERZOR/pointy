@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="he" dir="rtl" data-lang="he" data-title-he="Pointy · על מה לוחצים פה?" data-title-en="Pointy · Where do I even click?">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self' https://lrfohfcwsgjxeqdbqwbg.supabase.co; form-action 'self'; base-uri 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Pointy · על מה לוחצים פה?</title>
+<meta name="description" content="שואלים איך עושים משהו במק, וסמן כתום מראה בדיוק על מה ללחוץ, צעד אחרי צעד. מתחילים בחינם.">
+<meta name="theme-color" content="#0e0e10" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pointy · על מה לוחצים פה?">
+<meta property="og:description" content="סמן כתום שמראה לך בדיוק על מה ללחוץ במק, צעד אחרי צעד.">
+<meta property="og:image" content="https://trypointy.com/hero.jpg">
+<meta property="og:url" content="https://trypointy.com/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="preload" as="image" href="hero.jpg">
+<link rel="stylesheet" href="vendor/phosphor/style.css">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main"><span lang="he">דילוג לתוכן</span><span lang="en">Skip to content</span></a>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="./" aria-label="Pointy">
+      <img src="icon.png" alt="" width="34" height="34">
+      Pointy
+    </a>
+    <div class="nav-actions">
+      <button class="chip" id="langBtn" type="button" aria-label="Switch language">
+        <i class="ph ph-translate" aria-hidden="true"></i>
+        <span lang="he">English</span><span lang="en">עברית</span>
+      </button>
+      <a class="chip" id="authChip" href="login.html">
+        <i class="ph ph-user-circle" aria-hidden="true"></i><span lang="he">כניסה</span><span lang="en">Sign in</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <!-- Hero -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1 class="rise" >
+          <span lang="he">על מה לוחצים פה?</span><span lang="en">Where do I even click?</span>
+          <span class="accent"><span lang="he">Pointy מראה לך.</span><span lang="en">Pointy shows you.</span></span>
+        </h1>
+        <p class="lead rise" data-d="1">
+          <span lang="he">שואלים איך עושים משהו במק, וסמן כתום עף בדיוק לכפתור הנכון ומלווה אותך צעד אחרי צעד.</span>
+          <span lang="en">Ask how to do anything on your Mac. An orange pointer flies to the exact button and walks you through it.</span>
+        </p>
+        <div class="ctas rise" data-d="2">
+          <a class="btn btn-primary js-get" href="download/Pointy-2.0.dmg">
+            <i class="ph ph-apple-logo js-get-icon" aria-hidden="true"></i>
+            <span class="js-get-label"><span lang="he">הורדה למק</span><span lang="en">Download for Mac</span></span>
+          </a>
+          <a class="btn btn-ghost" href="#install">
+            <span lang="he">איך מתקינים</span><span lang="en">How to install</span>
+          </a>
+        </div>
+      </div>
+      <div class="screen rise" data-d="2">
+        <video id="demo" src="hero.mp4" poster="hero.jpg" autoplay muted loop playsinline preload="metadata"
+               aria-label="Pointy demo: an orange pointer finds the Scale control in Premiere Pro"></video>
+        <div class="video-controls">
+          <button class="sound" id="playBtn" type="button" aria-label="Pause video">
+            <i class="ph ph-pause" aria-hidden="true"></i>
+          </button>
+          <button class="sound" id="soundBtn" type="button" aria-label="Sound on">
+            <i class="ph ph-speaker-slash" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hebrew, for real -->
+  <section>
+    <div class="wrap split">
+      <figure class="shot reveal">
+        <img src="premiere-hebrew.png" width="966" height="490" loading="lazy"
+             alt="Pointy pointing at the Scale stopwatch in Premiere Pro, with a Hebrew step bubble">
+      </figure>
+      <div class="reveal" data-d="1">
+        <h2><span lang="he">מדבר עברית. באמת.</span><span lang="en">Speaks your language.</span></h2>
+        <p class="body">
+          <span lang="he">שואלים בעברית, והבועות מוצגות מימין לשמאל. עובד בפרימייר, בפיגמה, בהגדרות המק ובכל אפליקציה אחרת.</span>
+          <span lang="en">Ask in English, Hebrew or anything else. It works in Premiere, Figma, System Settings and every other app.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What it does -->
+  <section class="pt0">
+    <div class="wrap">
+      <h2 class="reveal"><span lang="he">מראה, לא רק מסביר.</span><span lang="en">It points. It doesn't just tell.</span></h2>
+      <div class="bento">
+        <div class="cell c-key reveal">
+          <div class="keys" aria-hidden="true"><span class="key">⌥</span><span class="key wide">Space</span></div>
+          <h3><span lang="he">בכל אפליקציה, בכל רגע</span><span lang="en">Anywhere, any time</span></h3>
+          <p><span lang="he">לוחצים ⌥ Space, שואלים, והסמן מתחיל לזוז תוך כשתי שניות.</span><span lang="en">Press ⌥ Space, ask, and the pointer starts moving in about two seconds.</span></p>
+        </div>
+        <div class="cell c-aim reveal" data-d="1">
+          <img class="icon-app" src="icon.png" alt="" width="56" height="56" loading="lazy">
+          <h3><span lang="he">כוונת מדויקת</span><span lang="en">Precise aim</span></h3>
+          <p><span lang="he">כשהכפתור קטנטן, Pointy עושה זום לבדיקה שנייה וננעל עליו.</span><span lang="en">When a control is tiny, Pointy zooms in for a second look and locks on.</span></p>
+        </div>
+        <div class="cell c-third reveal">
+          <i class="ph ph-cursor-click ico" aria-hidden="true"></i>
+          <h3><span lang="he">ממשיך איתך</span><span lang="en">Follows along</span></h3>
+          <p><span lang="he">לוחצים איפה שהוא מראה, והוא עובר לצעד הבא לבד.</span><span lang="en">Click where it points and it moves to the next step by itself.</span></p>
+        </div>
+        <div class="cell c-third reveal" data-d="1">
+          <i class="ph ph-microphone ico" aria-hidden="true"></i>
+          <h3><span lang="he">שואלים בקול</span><span lang="en">Just say it</span></h3>
+          <p><span lang="he">מדברים במקום להקליד, ואפשר גם לשמוע כל צעד בקול.</span><span lang="en">Ask with your voice, and hear each step read aloud if you like.</span></p>
+        </div>
+        <div class="cell c-third reveal" data-d="2">
+          <i class="ph ph-keyboard ico" aria-hidden="true"></i>
+          <h3><span lang="he">מזהה קיצורי מקלדת</span><span lang="en">Knows shortcuts</span></h3>
+          <p><span lang="he">כשהצעד הוא קיצור, הוא מציג את המקשים ומזהה כשלחצת.</span><span lang="en">When a step is a shortcut, it shows the keys and notices when you press them.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="pt0">
+    <div class="wrap">
+      <div class="pricing-head reveal">
+        <h2><span lang="he">מחירים</span><span lang="en">Pricing</span></h2>
+        <p class="body"><span lang="he">בלי מפתח API ובלי הגדרות: נרשמים ושואלים. מתחילים בחינם, ומשדרגים רק כשרוצים יותר.</span><span lang="en">No API key, no setup: sign in and ask. Start free and upgrade only when you want more.</span></p>
+        <p class="soon"><i class="ph ph-clock" aria-hidden="true"></i><span lang="he">המסלולים נפתחים בקרוב. פתחו חשבון עכשיו לגישה מוקדמת. לא נחייב אתכם בלי אישור.</span><span lang="en">Plans open soon. Create an account now for early access. We'll never charge you without your approval.</span></p>
+      </div>
+      <div class="plans">
+      <article class="plan p-free reveal">
+        <h3>Free</h3>
+        <p class="price"><span lang="he">₪0</span><span lang="en">$0</span><small><span lang="he">לחודש</span><span lang="en">/month</span></small></p>
+        <p class="tagline"><span lang="he">לטעום ולראות שזה עובד</span><span lang="en">Try it and see it work</span></p>
+        <ul>
+          <li><i class="ph ph-check" aria-hidden="true"></i><span><span lang="he">10 שאלות בחודש (עד 3 ביום)</span><span lang="en">10 questions a month (up to 3 a day)</span></span></li>
+          <li><i class="ph ph-check" aria-hidden="true"></i><span><span lang="he">אותו מודל Claude כמו במסלולים בתשלום</span><span lang="en">The same Claude model as paid plans</span></span></li>
+          <li><i class="ph ph-check" aria-hidden="true"></i><span><span lang="he">בלי כרטיס אשראי</span><span lang="en">No credit card</span></span></li>
+        </ul>
+        <a class="btn btn-ghost" href="signup.html"><span lang="he">יצירת חשבון חינם</span><span lang="en">Create a free account</span></a>
+      </article>
+      <article class="plan p-pro reveal">
+        <span class="badge"><span lang="he">הכי פופולרי</span><span lang="en">Most popular</span></span>
+        <h3>Pro</h3>
+        <p class="price"><span lang="he">₪49</span><span lang="en">$13</span><small><span lang="he">לחודש</span><span lang="en">/month</span></small></p>
+        <p class="tagline"><span lang="he">לשימוש יומיומי</span><span lang="en">For everyday use</span></p>
+        <ul>
+          <li><i class="ph ph-check" aria-hidden="true"></i><span><span lang="he">50 שאלות בחודש (עד 15 ביום)</span><span lang="en">50 questions a month (up to 15 a day)</span></span></li>
+          <li><i class="ph ph-check" aria-hidden="true"></i><span><span lang="he">כל מה שיש ב־Free</span><span lang="en">Everything in Free</span></span></li>
+          <li><i class="ph ph-check" aria-hidden="true"></i><span><span lang="he">תמיכה במייל</span><span lang="en">Email support</span></span></li>
+        </ul>
+        <a class="btn btn-primary" href="signup.html"><span lang="he">הצטרפות לגישה מוקדמת</span><span lang="en">Get early access</span></a>
+      </article>
+      <article class="plan p-max reveal">
+        <h3>Max</h3>
+        <p class="price"><span lang="he">₪149</span><span lang="en">$40</span><small><span lang="he">לחודש</span><span lang="en">/month</span></small></p>
+        <p class="tagline"><span lang="he">למי שעובד עם זה כל היום</span><span lang="en">For working with it all day</span></p>
+        <ul>
+          <li><i class="ph ph-check" aria-hidden="true"></i><span><span lang="he">150 שאלות בחודש (עד 30 ביום)</span><span lang="en">150 questions a month (up to 30 a day)</span></span></li>
+          <li><i class="ph ph-lightning" aria-hidden="true"></i><span><span lang="he">מצב מהיר: תשובות מהירות פי 2.5 (שאלה מהירה נספרת כ־2)</span><span lang="en">Fast mode: 2.5× quicker answers (a fast question counts as 2)</span></span></li>
+          <li><i class="ph ph-check" aria-hidden="true"></i><span><span lang="he">תמיכה בעדיפות בוואטסאפ</span><span lang="en">Priority WhatsApp support</span></span></li>
+        </ul>
+        <a class="btn btn-ghost" href="signup.html"><span lang="he">הצטרפות לגישה מוקדמת</span><span lang="en">Get early access</span></a>
+      </article>
+        <article class="plan p-dev reveal">
+          <div class="dev-main">
+            <span class="badge"><span lang="he">תשלום חד־פעמי</span><span lang="en">One-time</span></span>
+            <h3>Developer</h3>
+            <p class="price"><span lang="he">₪129.90</span><span lang="en">$35</span><small><span lang="he">פעם אחת, לכל החיים</span><span lang="en">once, for life</span></small></p>
+            <p class="tagline"><span lang="he">למי שיש מפתח API משלו ב־Anthropic</span><span lang="en">For people with their own Anthropic API key</span></p>
+          </div>
+          <div class="dev-side">
+            <ul>
+              <li><i class="ph ph-key" aria-hidden="true"></i><span><span lang="he">בלי מכסת שאלות. Anthropic מחייבת אותך ישירות לפי שימוש</span><span lang="en">No question quota. Anthropic bills you directly for usage</span></span></li>
+              <li><i class="ph ph-lightning" aria-hidden="true"></i><span><span lang="he">כל המודלים, כולל מצב מהיר</span><span lang="en">Every model, including fast mode</span></span></li>
+              <li><i class="ph ph-arrows-clockwise" aria-hidden="true"></i><span><span lang="he">כל העדכונים של Pointy למק, בלי מנוי</span><span lang="en">Every Pointy for Mac update, no subscription</span></span></li>
+            </ul>
+            <a class="btn btn-ghost" href="signup.html"><span lang="he">הצטרפות לגישה מוקדמת</span><span lang="en">Get early access</span></a>
+          </div>
+        </article>
+      </div>
+      <div class="plan-notes reveal">
+        <p><span lang="he">המחירים בשקלים וכוללים מע"מ. המנוי מתחדש אוטומטית כל חודש עד שמבטלים. אפשר לבטל בכל רגע מדף החשבון, בלי התחייבות, והגישה נמשכת עד סוף החודש ששולם. שאלות שלא נוצלו לא עוברות לחודש הבא. גרסת המפתחים היא תשלום אחד, בלי חידוש. פרטים ב<a href="terms.html">תנאי השימוש</a>.</span><span lang="en">Prices include VAT where it applies. Subscriptions renew automatically every month until you cancel. Cancel any time from your account page with no commitment; access lasts until the end of the paid month. Unused questions don't roll over. The Developer license is a single payment that never renews. Details in the <a href="terms.html">Terms</a>.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Install -->
+  <section id="install" class="pt0">
+    <div class="wrap">
+      <h2 class="reveal"><span lang="he">איך מתקינים</span><span lang="en">How to install</span></h2>
+      <div class="steps">
+        <div class="step reveal">
+          <h3><span lang="he">גוררים לאפליקציות</span><span lang="en">Drag to Applications</span></h3>
+          <p><span lang="he">פותחים את קובץ ה־DMG וגוררים את Pointy לתיקיית Applications.</span><span lang="en">Open the DMG and drag Pointy into your Applications folder.</span></p>
+        </div>
+        <div class="step reveal" data-d="1">
+          <h3><span lang="he">מאשרים פתיחה</span><span lang="en">Allow it to open</span></h3>
+          <p><span lang="he">בפעם הראשונה: הגדרות המערכת ← פרטיות ואבטחה ← "פתח בכל זאת". ואז מאשרים הקלטת מסך.</span><span lang="en">The first time: System Settings → Privacy &amp; Security → "Open Anyway". Then allow Screen Recording.</span></p>
+        </div>
+        <div class="step reveal" data-d="2">
+          <h3><span lang="he">מתחברים ומתחילים</span><span lang="en">Sign in and start</span></h3>
+          <p><span lang="he">מתחברים עם <a href="signup.html">החשבון שלכם</a>, לוחצים ⌥ Space בכל מקום ושואלים. 10 שאלות בחודש בחינם.</span><span lang="en">Sign in with <a href="signup.html">your account</a>, press ⌥ Space anywhere and ask. 10 free questions a month.</span></p>
+        </div>
+      </div>
+      <div class="req reveal">
+        <i class="ph ph-info" aria-hidden="true"></i>
+        <span lang="he">דרוש macOS 26 ומעלה, Mac עם שבב Apple (M1 ומעלה) וחשבון Pointy.</span>
+        <span lang="en">Requires macOS 26 or later, a Mac with Apple silicon (M1 or later) and a Pointy account.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="pt0">
+    <div class="wrap faq">
+      <h2 class="reveal"><span lang="he">שאלות</span><span lang="en">Questions</span></h2>
+      <details class="reveal">
+        <summary><span><span lang="he">כמה זה עולה?</span><span lang="en">How much does it cost?</span></span><i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p><span lang="he">מתחילים בחינם: 10 שאלות בחודש, בלי כרטיס אשראי ובלי מפתח API. מי שרוצה יותר עובר ל־Pro (₪49 לחודש) או ל־Max (₪149 לחודש). למי שיש מפתח API משלו יש גרסת מפתחים בתשלום חד־פעמי של ₪129.90, ואז Anthropic מחייבת אותו ישירות לפי שימוש. המסלולים נפתחים בקרוב. <a href="#pricing">מחירים</a></span><span lang="en">Start free: 10 questions a month, no credit card and no API key. Want more? Pro is ₪49/month and Max ₪149/month. If you have your own API key, the Developer license is a one-time ₪129.90, and Anthropic bills you directly for usage. Plans open soon. <a href="#pricing">Pricing</a></span></p>
+      </details>
+      <details class="reveal">
+        <summary><span><span lang="he">מה עם הפרטיות?</span><span lang="en">What about privacy?</span></span><i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p><span lang="he">Pointy מצלם את המסך רק כשאתם שואלים, ושולח את הצילום ישירות מהמק שלכם ל־Claude של Anthropic עם המפתח שלכם. אנחנו לא מקבלים ולא שומרים צילומי מסך. השאלות האחרונות, ההגדרות ומונה העלויות נשמרים רק על המק (אפשר למחוק בהגדרות), והמפתח נשמר ב־Keychain. <a href="privacy.html">מדיניות הפרטיות</a></span><span lang="en">Pointy only captures your screen when you ask, and sends it straight from your Mac to Anthropic's Claude using your own key. We never receive or store screenshots. Your recent questions, settings and cost counter stay on your Mac (you can clear them in Settings), and your key stays in the Keychain. <a href="privacy.html">Privacy policy</a></span></p>
+      </details>
+      <details class="reveal">
+        <summary><span><span lang="he">למה macOS לא נותן לפתוח את האפליקציה?</span><span lang="en">Why won't macOS open it?</span></span><i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p><span lang="he">Pointy עוד לא עבר נוטריזציה של אפל. פותרים את זה פעם אחת דרך "פתח בכל זאת" בהגדרות פרטיות ואבטחה.</span><span lang="en">Pointy isn't notarized by Apple yet. Fix it once with "Open Anyway" in Privacy &amp; Security settings.</span></p>
+      </details>
+      <details class="reveal">
+        <summary><span><span lang="he">זה עובד בווינדוס או באייפון?</span><span lang="en">Does it work on Windows or iPhone?</span></span><i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p><span lang="he">כרגע רק במק. גולשים מהטלפון? שלחו לעצמכם את הלינק ופתחו אותו במק.</span><span lang="en">Mac only for now. On your phone? Send yourself the link and open it on your Mac.</span></p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Closing -->
+  <section class="closing" data-pt="24">
+    <div class="wrap reveal">
+      <h2><span lang="he">בפעם הבאה שתיתקעו, תשאלו את Pointy.</span><span lang="en">Next time you're stuck, ask Pointy.</span></h2>
+      <div class="ctas">
+        <a class="btn btn-primary js-get" href="download/Pointy-2.0.dmg">
+          <i class="ph ph-apple-logo js-get-icon" aria-hidden="true"></i>
+          <span class="js-get-label"><span lang="he">הורדה למק</span><span lang="en">Download for Mac</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav class="foot-links" aria-label="Legal">
+      <a href="privacy.html"><span lang="he">פרטיות</span><span lang="en">Privacy</span></a>
+      <a href="terms.html"><span lang="he">תנאי שימוש</span><span lang="en">Terms</span></a>
+      <a href="cookies.html"><span lang="he">עוגיות</span><span lang="en">Cookies</span></a>
+      <a href="accessibility.html"><span lang="he">הצהרת נגישות</span><span lang="en">Accessibility</span></a>
+    </nav>
+    <span>© 2026 Pointy</span>
+    <p class="foot-note"><span lang="he">Pointy אינו קשור ל־Apple, ל־Anthropic או ל־Adobe. השמות שלהם הם סימנים מסחריים של בעליהם.</span><span lang="en">Pointy is not affiliated with Apple, Anthropic or Adobe. Their names are trademarks of their owners.</span></p>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/common.js"></script>
+<script src="assets/home.js"></script>
+</body>
+</html>

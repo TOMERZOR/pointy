@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="he" dir="rtl" data-lang="he" data-title-he="סיסמה חדשה · Pointy" data-title-en="New password · Pointy">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self' https://lrfohfcwsgjxeqdbqwbg.supabase.co; form-action 'self'; base-uri 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="noindex">
+<title>סיסמה חדשה · Pointy</title>
+<meta name="theme-color" content="#0e0e10" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
+<link rel="icon" href="icon.png">
+<link rel="stylesheet" href="vendor/phosphor/style.css">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main"><span lang="he">דילוג לתוכן</span><span lang="en">Skip to content</span></a>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="./" aria-label="Pointy">
+      <img src="icon.png" alt="" width="34" height="34">
+      Pointy
+    </a>
+    <div class="nav-actions">
+      <button class="chip" id="langBtn" type="button" aria-label="Switch language">
+        <i class="ph ph-translate" aria-hidden="true"></i>
+        <span lang="he">English</span><span lang="en">עברית</span>
+      </button>
+      <a class="chip" id="authChip" href="login.html">
+        <i class="ph ph-user-circle" aria-hidden="true"></i><span lang="he">כניסה</span><span lang="en">Sign in</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="page ">
+  <div class="wrap">
+<div class="card" data-page="reset">
+  <form id="resetForm" novalidate>
+    <h1><span lang="he">בחירת סיסמה חדשה</span><span lang="en">Choose a new password</span></h1>
+    <div class="field">
+      <label for="password"><span lang="he">סיסמה חדשה</span><span lang="en">New password</span></label>
+      <div class="pw-row">
+        <input id="password" type="password" autocomplete="new-password" required minlength="10" maxlength="72" dir="ltr" aria-describedby="pwHint">
+        <button class="chip pw-toggle" type="button" data-toggle-pw="password" aria-pressed="false" aria-label="Show password"><i class="ph ph-eye" aria-hidden="true"></i></button>
+      </div>
+      <p class="hint" id="pwHint"><span lang="he">לפחות 10 תווים.</span><span lang="en">At least 10 characters.</span></p>
+    </div>
+    <button class="btn btn-primary" id="submit" type="submit"><span lang="he">שמירה</span><span lang="en">Save password</span></button>
+    <p class="form-msg" id="msg" role="alert" aria-live="assertive"></p>
+  </form>
+</div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav class="foot-links" aria-label="Legal">
+      <a href="privacy.html"><span lang="he">פרטיות</span><span lang="en">Privacy</span></a>
+      <a href="terms.html"><span lang="he">תנאי שימוש</span><span lang="en">Terms</span></a>
+      <a href="cookies.html"><span lang="he">עוגיות</span><span lang="en">Cookies</span></a>
+      <a href="accessibility.html"><span lang="he">הצהרת נגישות</span><span lang="en">Accessibility</span></a>
+    </nav>
+    <span>© 2026 Pointy</span>
+    <p class="foot-note"><span lang="he">Pointy אינו קשור ל־Apple, ל־Anthropic או ל־Adobe. השמות שלהם הם סימנים מסחריים של בעליהם.</span><span lang="en">Pointy is not affiliated with Apple, Anthropic or Adobe. Their names are trademarks of their owners.</span></p>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="assets/common.js"></script>
+<script src="vendor/supabase/supabase.js"></script>
+<script src="assets/config.js"></script>
+<script src="assets/auth.js"></script>
+</body>
+</html>

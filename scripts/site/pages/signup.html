@@ -1,0 +1,39 @@
+{"he": "יצירת חשבון · Pointy", "en": "Create account · Pointy", "scripts": ["vendor/supabase/supabase.js", "assets/config.js", "assets/auth.js"]}
+<div class="card" data-page="signup">
+  <form id="signupForm" novalidate>
+    <h1><span lang="he">יצירת חשבון</span><span lang="en">Create your account</span></h1>
+    <p class="sub"><span lang="he">גישה מוקדמת ל־Pointy Pro: בלי מפתח API ובלי הגדרות.</span><span lang="en">Early access to Pointy Pro: no API key, no setup.</span></p>
+
+    <div class="field">
+      <label for="email"><span lang="he">אימייל</span><span lang="en">Email</span></label>
+      <input id="email" type="email" inputmode="email" autocomplete="email" required dir="ltr" maxlength="254">
+    </div>
+    <div class="field">
+      <label for="password"><span lang="he">סיסמה</span><span lang="en">Password</span></label>
+      <div class="pw-row">
+        <input id="password" type="password" autocomplete="new-password" required minlength="10" maxlength="72" dir="ltr" aria-describedby="pwHint">
+        <button class="chip pw-toggle" type="button" data-toggle-pw="password" aria-pressed="false" aria-label="Show password"><i class="ph ph-eye" aria-hidden="true"></i></button>
+      </div>
+      <p class="hint" id="pwHint"><span lang="he">לפחות 10 תווים. משפט קצר עובד מצוין.</span><span lang="en">At least 10 characters. A short phrase works great.</span></p>
+    </div>
+
+    <label class="check"><input id="age" type="checkbox" required>
+      <span><span lang="he">אני בן/בת 18 ומעלה.</span><span lang="en">I am 18 or older.</span></span></label>
+    <label class="check"><input id="terms" type="checkbox" required>
+      <span><span lang="he">קראתי ואני מסכים/ה ל<a href="terms.html" target="_blank" rel="noopener">תנאי השימוש</a> ול<a href="privacy.html" target="_blank" rel="noopener">מדיניות הפרטיות</a>.</span><span lang="en">I agree to the <a href="terms.html" target="_blank" rel="noopener">Terms of Use</a> and <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</span></span></label>
+    <label class="check"><input id="marketing" type="checkbox">
+      <span><span lang="he">אשמח לקבל עדכונים ודיוור על Pointy במייל (לא חובה, אפשר לבטל בכל רגע).</span><span lang="en">Send me news and offers about Pointy by email (optional, unsubscribe any time).</span></span></label>
+
+    <button class="btn btn-primary" id="submit" type="submit"><span lang="he">יצירת חשבון</span><span lang="en">Create account</span></button>
+    <p class="form-msg" id="msg" role="alert" aria-live="assertive"></p>
+    <p class="card-foot"><span lang="he">כבר יש לכם חשבון? <a href="login.html">כניסה</a></span><span lang="en">Already have an account? <a href="login.html">Sign in</a></span></p>
+  </form>
+
+  <div id="checkInbox" hidden tabindex="-1">
+    <h1><span lang="he">בדקו את המייל</span><span lang="en">Check your email</span></h1>
+    <p class="sub"><span lang="he">שלחנו קישור לאימות אל</span><span lang="en">We sent a verification link to</span> <strong id="sentTo" dir="ltr"></strong>.
+      <span lang="he">לחצו עליו כדי להפעיל את החשבון. לא הגיע? בדקו בספאם.</span><span lang="en">Click it to activate your account. Not there? Check spam.</span></p>
+    <button class="btn btn-ghost" id="resend" type="button"><span class="label"><span lang="he">שליחה חוזרת</span><span lang="en">Resend email</span></span></button>
+    <p class="form-msg" id="resendMsg" role="status" aria-live="polite"></p>
+  </div>
+</div>

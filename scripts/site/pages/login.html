@@ -1,0 +1,37 @@
+{"he": "כניסה · Pointy", "en": "Sign in · Pointy", "scripts": ["vendor/supabase/supabase.js", "assets/config.js", "assets/auth.js"]}
+<div class="card" data-page="login">
+  <form id="loginForm" novalidate>
+    <h1><span lang="he">כניסה</span><span lang="en">Sign in</span></h1>
+    <p class="sub"><span lang="he">ברוכים השבים.</span><span lang="en">Welcome back.</span></p>
+    <div class="field">
+      <label for="email"><span lang="he">אימייל</span><span lang="en">Email</span></label>
+      <input id="email" type="email" inputmode="email" autocomplete="email" required dir="ltr" maxlength="254">
+    </div>
+    <div class="field">
+      <label for="password"><span lang="he">סיסמה</span><span lang="en">Password</span></label>
+      <div class="pw-row">
+        <input id="password" type="password" autocomplete="current-password" required maxlength="72" dir="ltr">
+        <button class="chip pw-toggle" type="button" data-toggle-pw="password" aria-pressed="false" aria-label="Show password"><i class="ph ph-eye" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <button class="btn btn-primary" id="submit" type="submit"><span lang="he">כניסה</span><span lang="en">Sign in</span></button>
+    <p class="form-msg" id="msg" role="alert" aria-live="assertive"></p>
+    <button class="btn btn-ghost" id="resend" type="button" hidden><span class="label"><span lang="he">שליחה חוזרת של מייל האימות</span><span lang="en">Resend verification email</span></span></button>
+    <p class="card-foot">
+      <button class="linklike" id="showForgot" type="button"><span lang="he">שכחתי סיסמה</span><span lang="en">Forgot password?</span></button>
+      · <span lang="he">אין חשבון? <a href="signup.html">יצירת חשבון</a></span><span lang="en">No account? <a href="signup.html">Create one</a></span>
+    </p>
+  </form>
+
+  <form id="forgotForm" novalidate hidden>
+    <h1><span lang="he">איפוס סיסמה</span><span lang="en">Reset password</span></h1>
+    <p class="sub"><span lang="he">נשלח לכם קישור לבחירת סיסמה חדשה.</span><span lang="en">We'll email you a link to choose a new password.</span></p>
+    <div class="field">
+      <label for="forgotEmail"><span lang="he">אימייל</span><span lang="en">Email</span></label>
+      <input id="forgotEmail" type="email" inputmode="email" autocomplete="email" required dir="ltr" maxlength="254">
+    </div>
+    <button class="btn btn-primary" id="forgotSubmit" type="submit"><span lang="he">שליחת קישור</span><span lang="en">Send link</span></button>
+    <p class="form-msg" id="forgotMsg" role="status" aria-live="polite"></p>
+    <p class="card-foot"><button class="linklike" id="backToLogin" type="button"><span lang="he">חזרה לכניסה</span><span lang="en">Back to sign in</span></button></p>
+  </form>
+</div>

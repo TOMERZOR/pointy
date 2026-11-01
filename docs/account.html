@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="he" dir="rtl" data-lang="he" data-title-he="החשבון שלי · Pointy" data-title-en="My account · Pointy">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self' https://lrfohfcwsgjxeqdbqwbg.supabase.co; form-action 'self'; base-uri 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="noindex">
+<title>החשבון שלי · Pointy</title>
+<meta name="theme-color" content="#0e0e10" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
+<link rel="icon" href="icon.png">
+<link rel="stylesheet" href="vendor/phosphor/style.css">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main"><span lang="he">דילוג לתוכן</span><span lang="en">Skip to content</span></a>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="./" aria-label="Pointy">
+      <img src="icon.png" alt="" width="34" height="34">
+      Pointy
+    </a>
+    <div class="nav-actions">
+      <button class="chip" id="langBtn" type="button" aria-label="Switch language">
+        <i class="ph ph-translate" aria-hidden="true"></i>
+        <span lang="he">English</span><span lang="en">עברית</span>
+      </button>
+      <a class="chip" id="authChip" href="login.html">
+        <i class="ph ph-user-circle" aria-hidden="true"></i><span lang="he">כניסה</span><span lang="en">Sign in</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="page dash-page">
+  <div class="wrap">
+<div data-page="account">
+  <div class="dash" id="signedIn" hidden>
+    <header class="dash-head">
+      <span class="avatar lg" id="acctInitial" aria-hidden="true"></span>
+      <div>
+        <h1><span lang="he">החשבון שלי</span><span lang="en">My account</span></h1>
+        <p class="dash-email" id="acctEmail" dir="ltr"></p>
+      </div>
+      <span class="plan-badge" id="acctPlanBadge"></span>
+    </header>
+    <p class="form-msg" id="payMsg" role="status" aria-live="polite"></p>
+
+    <div class="dash-grid">
+      <!-- Plan -->
+      <section class="tile" aria-labelledby="planTitle">
+        <h2 id="planTitle"><i class="ph ph-crown-simple" aria-hidden="true"></i><span lang="he">המסלול שלך</span><span lang="en">Your plan</span></h2>
+        <p class="tile-big" id="acctPlan"></p>
+        <p class="tile-sub" id="acctPlanLine"></p>
+        <p class="warn" id="payFailed" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i><span><span lang="he">החיוב החודשי האחרון לא עבר. כדי שהמנוי ימשיך, עדכנו את כרטיס האשראי: כתבו לנו בוואטסאפ או במייל ונשלח קישור מאובטח לעדכון.</span><span lang="en">Your last monthly charge didn't go through. To keep your plan, update your card: message us on WhatsApp or by email and we'll send a secure link.</span></span></p>
+        <div class="tile-actions">
+          <a class="btn btn-primary" id="upgradeLink" href="#upgrade"><span lang="he">שדרוג</span><span lang="en">Upgrade</span></a>
+          <button class="btn btn-ghost" id="cancelSub" type="button" hidden><span lang="he">ביטול המנוי</span><span lang="en">Cancel subscription</span></button>
+        </div>
+      </section>
+
+      <!-- Usage -->
+      <section class="tile" aria-labelledby="usageTitle">
+        <h2 id="usageTitle"><i class="ph ph-chart-bar" aria-hidden="true"></i><span lang="he">שאלות</span><span lang="en">Questions</span></h2>
+        <div class="meter">
+          <div class="meter-row"><span><span lang="he">היום</span><span lang="en">Today</span></span><b id="acctToday">—</b></div>
+          <div class="bar"><span id="barToday"></span></div>
+        </div>
+        <div class="meter">
+          <div class="meter-row"><span><span lang="he">החודש</span><span lang="en">This month</span></span><b id="acctMonth">—</b></div>
+          <div class="bar"><span id="barMonth"></span></div>
+        </div>
+        <p class="tile-sub"><span lang="he">המכסה היומית מתאפסת בחצות, והחודשית ב־1 לחודש (שעון ישראל). שאלה מהירה נספרת כ־2.</span><span lang="en">The daily count resets at midnight and the monthly one on the 1st (Israel time). A fast question counts as 2.</span></p>
+      </section>
+
+      <!-- Developer license -->
+      <section class="tile" aria-labelledby="devTitle">
+        <h2 id="devTitle"><i class="ph ph-key" aria-hidden="true"></i><span lang="he">גרסת מפתחים</span><span lang="en">Developer license</span></h2>
+        <p class="tile-big" id="acctDev"></p>
+        <p class="tile-sub" id="devActive" hidden><span lang="he">באפליקציה נכנסים להגדרות, ובטאב Account מדליקים את המתג של המפתח האישי. את המפתח מדביקים בטאב Intelligence.</span><span lang="en">In the app: Settings → Account → "Use my own Anthropic API key", then paste your key in the Intelligence tab.</span></p>
+        <p class="tile-sub" id="devInactive" hidden><span lang="he">יש לך מפתח API של Anthropic? תשלום אחד של ₪129.90 ואין מכסה. Anthropic מחייבת אותך ישירות לפי שימוש.</span><span lang="en">Have an Anthropic API key? One payment of ₪129.90 and no quota. Anthropic bills you directly for usage.</span></p>
+      </section>
+
+      <!-- The app -->
+      <section class="tile" aria-labelledby="appTitle">
+        <h2 id="appTitle"><i class="ph ph-apple-logo" aria-hidden="true"></i><span lang="he">האפליקציה למק</span><span lang="en">The Mac app</span></h2>
+        <ol class="tile-steps">
+          <li><span lang="he">מורידים ומתקינים את Pointy.</span><span lang="en">Download and install Pointy.</span></li>
+          <li><span lang="he">בהגדרות ← Account מתחברים עם המייל הזה.</span><span lang="en">In Settings → Account, sign in with this email.</span></li>
+          <li><span lang="he">לוחצים ⌥ Space בכל מקום ושואלים.</span><span lang="en">Press ⌥ Space anywhere and ask.</span></li>
+        </ol>
+        <div class="tile-actions">
+          <a class="btn btn-ghost" href="download/Pointy-2.0.dmg"><i class="ph ph-download-simple" aria-hidden="true"></i><span lang="he">הורדה למק</span><span lang="en">Download for Mac</span></a>
+        </div>
+      </section>
+
+      <!-- Upgrade -->
+      <section class="tile wide" id="upgrade" aria-labelledby="buyTitle" hidden>
+        <h2 id="buyTitle"><i class="ph ph-rocket-launch" aria-hidden="true"></i><span lang="he">שדרוג</span><span lang="en">Upgrade</span></h2>
+        <div class="buy-grid" id="buy">
+          <button class="buy-option" type="button" data-plan="pro">
+            <b>Pro</b><span class="buy-price"><span lang="he">₪49 לחודש</span><span lang="en">₪49/month</span></span>
+            <span class="buy-desc"><span lang="he">50 שאלות בחודש, עד 15 ביום</span><span lang="en">50 questions a month, up to 15 a day</span></span>
+          </button>
+          <button class="buy-option" type="button" data-plan="max">
+            <b>Max</b><span class="buy-price"><span lang="he">₪149 לחודש</span><span lang="en">₪149/month</span></span>
+            <span class="buy-desc"><span lang="he">150 שאלות בחודש ומצב מהיר</span><span lang="en">150 questions a month and fast mode</span></span>
+          </button>
+          <button class="buy-option" type="button" data-plan="developer">
+            <b>Developer</b><span class="buy-price"><span lang="he">₪129.90 חד־פעמי</span><span lang="en">₪129.90 once</span></span>
+            <span class="buy-desc"><span lang="he">מפתח API משלך, בלי מכסה</span><span lang="en">Your own API key, no quota</span></span>
+          </button>
+        </div>
+        <p class="hint"><span lang="he">המחירים כוללים מע"מ. Pro ו־Max מתחדשים אוטומטית כל חודש עד שמבטלים, ואפשר לבטל בכל רגע בדף הזה. Developer הוא תשלום אחד, בלי חידוש. התשלום מאובטח דרך PayPlus. <a href="terms.html">תנאי השימוש</a></span><span lang="en">Prices include VAT where it applies. Pro and Max renew automatically every month until you cancel, which you can do any time on this page. Developer is a single payment that never renews. Payment is secured by PayPlus. <a href="terms.html">Terms</a></span></p>
+      </section>
+
+      <!-- Account details -->
+      <section class="tile" aria-labelledby="detailsTitle">
+        <h2 id="detailsTitle"><i class="ph ph-user-circle" aria-hidden="true"></i><span lang="he">פרטי החשבון</span><span lang="en">Account details</span></h2>
+        <dl class="kv">
+          <dt><span lang="he">אימייל</span><span lang="en">Email</span></dt><dd id="acctEmail2" dir="ltr"></dd>
+          <dt><span lang="he">חבר/ה מאז</span><span lang="en">Member since</span></dt><dd id="acctSince"></dd>
+        </dl>
+        <label class="check"><input id="marketing" type="checkbox">
+          <span><span lang="he">לקבל עדכונים ודיוור על Pointy במייל</span><span lang="en">Email me news and offers about Pointy</span></span></label>
+        <p class="form-msg" id="msg" role="status" aria-live="polite"></p>
+        <div class="tile-actions">
+          <a class="btn btn-ghost" href="login.html#forgot"><span lang="he">שינוי סיסמה</span><span lang="en">Change password</span></a>
+          <button class="btn btn-ghost" id="signOut" type="button" data-needs-auth><i class="ph ph-sign-out" aria-hidden="true"></i><span lang="he">התנתקות</span><span lang="en">Sign out</span></button>
+        </div>
+      </section>
+
+      <!-- Support -->
+      <section class="tile" aria-labelledby="helpTitle">
+        <h2 id="helpTitle"><i class="ph ph-lifebuoy" aria-hidden="true"></i><span lang="he">עזרה</span><span lang="en">Help</span></h2>
+        <p class="tile-sub"><span lang="he">שאלה, תקלה, עדכון כרטיס אשראי או בקשה לביטול עסקה? נשמח לעזור. <a href="terms.html#refunds">ביטול עסקה והחזר כספי</a></span><span lang="en">A question, a bug, a card update or a cancellation request? We're happy to help. <a href="terms.html#refunds-en">Cancellations and refunds</a></span></p>
+        <div class="tile-actions">
+          <a class="btn btn-ghost" href="https://wa.me/972508882972" rel="noopener"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i><span lang="he">וואטסאפ</span><span lang="en">WhatsApp</span></a>
+          <a class="btn btn-ghost" href="mailto:trypointy@gmail.com"><i class="ph ph-envelope-simple" aria-hidden="true"></i><span lang="he">מייל</span><span lang="en">Email</span></a>
+        </div>
+      </section>
+    </div>
+
+    <details class="danger">
+      <summary><span lang="he">מחיקת החשבון</span><span lang="en">Delete account</span></summary>
+      <p class="tile-sub"><span lang="he">מוחק את החשבון ואת נתוני השימוש לצמיתות. מנוי פעיל צריך לבטל קודם.</span><span lang="en">Permanently deletes your account and usage data. Cancel any active subscription first.</span></p>
+      <button class="btn btn-danger" id="deleteAccount" type="button" data-needs-auth><span lang="he">מחיקת החשבון לצמיתות</span><span lang="en">Delete my account</span></button>
+    </details>
+  </div>
+
+  <div class="card" id="signedOut" hidden>
+    <h1><span lang="he">לא מחוברים</span><span lang="en">You're signed out</span></h1>
+    <p class="sub"><span lang="he">אם אימתתם את האימייל, אפשר להיכנס עכשיו.</span><span lang="en">If you've verified your email, you can sign in now.</span></p>
+    <p class="form-msg" id="outMsg" role="alert"></p>
+    <a class="btn btn-primary" href="login.html"><span lang="he">כניסה</span><span lang="en">Sign in</span></a>
+  </div>
+</div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav class="foot-links" aria-label="Legal">
+      <a href="privacy.html"><span lang="he">פרטיות</span><span lang="en">Privacy</span></a>
+      <a href="terms.html"><span lang="he">תנאי שימוש</span><span lang="en">Terms</span></a>
+      <a href="cookies.html"><span lang="he">עוגיות</span><span lang="en">Cookies</span></a>
+      <a href="accessibility.html"><span lang="he">הצהרת נגישות</span><span lang="en">Accessibility</span></a>
+    </nav>
+    <span>© 2026 Pointy</span>
+    <p class="foot-note"><span lang="he">Pointy אינו קשור ל־Apple, ל־Anthropic או ל־Adobe. השמות שלהם הם סימנים מסחריים של בעליהם.</span><span lang="en">Pointy is not affiliated with Apple, Anthropic or Adobe. Their names are trademarks of their owners.</span></p>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="assets/common.js"></script>
+<script src="vendor/supabase/supabase.js"></script>
+<script src="assets/config.js"></script>
+<script src="assets/auth.js"></script>
+</body>
+</html>

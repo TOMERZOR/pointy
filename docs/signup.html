@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="he" dir="rtl" data-lang="he" data-title-he="יצירת חשבון · Pointy" data-title-en="Create account · Pointy">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self' https://lrfohfcwsgjxeqdbqwbg.supabase.co; form-action 'self'; base-uri 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>יצירת חשבון · Pointy</title>
+<meta name="theme-color" content="#0e0e10" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
+<link rel="icon" href="icon.png">
+<link rel="stylesheet" href="vendor/phosphor/style.css">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main"><span lang="he">דילוג לתוכן</span><span lang="en">Skip to content</span></a>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="./" aria-label="Pointy">
+      <img src="icon.png" alt="" width="34" height="34">
+      Pointy
+    </a>
+    <div class="nav-actions">
+      <button class="chip" id="langBtn" type="button" aria-label="Switch language">
+        <i class="ph ph-translate" aria-hidden="true"></i>
+        <span lang="he">English</span><span lang="en">עברית</span>
+      </button>
+      <a class="chip" id="authChip" href="login.html">
+        <i class="ph ph-user-circle" aria-hidden="true"></i><span lang="he">כניסה</span><span lang="en">Sign in</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="page ">
+  <div class="wrap">
+<div class="card" data-page="signup">
+  <form id="signupForm" novalidate>
+    <h1><span lang="he">יצירת חשבון</span><span lang="en">Create your account</span></h1>
+    <p class="sub"><span lang="he">גישה מוקדמת ל־Pointy Pro: בלי מפתח API ובלי הגדרות.</span><span lang="en">Early access to Pointy Pro: no API key, no setup.</span></p>
+
+    <div class="field">
+      <label for="email"><span lang="he">אימייל</span><span lang="en">Email</span></label>
+      <input id="email" type="email" inputmode="email" autocomplete="email" required dir="ltr" maxlength="254">
+    </div>
+    <div class="field">
+      <label for="password"><span lang="he">סיסמה</span><span lang="en">Password</span></label>
+      <div class="pw-row">
+        <input id="password" type="password" autocomplete="new-password" required minlength="10" maxlength="72" dir="ltr" aria-describedby="pwHint">
+        <button class="chip pw-toggle" type="button" data-toggle-pw="password" aria-pressed="false" aria-label="Show password"><i class="ph ph-eye" aria-hidden="true"></i></button>
+      </div>
+      <p class="hint" id="pwHint"><span lang="he">לפחות 10 תווים. משפט קצר עובד מצוין.</span><span lang="en">At least 10 characters. A short phrase works great.</span></p>
+    </div>
+
+    <label class="check"><input id="age" type="checkbox" required>
+      <span><span lang="he">אני בן/בת 18 ומעלה.</span><span lang="en">I am 18 or older.</span></span></label>
+    <label class="check"><input id="terms" type="checkbox" required>
+      <span><span lang="he">קראתי ואני מסכים/ה ל<a href="terms.html" target="_blank" rel="noopener">תנאי השימוש</a> ול<a href="privacy.html" target="_blank" rel="noopener">מדיניות הפרטיות</a>.</span><span lang="en">I agree to the <a href="terms.html" target="_blank" rel="noopener">Terms of Use</a> and <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</span></span></label>
+    <label class="check"><input id="marketing" type="checkbox">
+      <span><span lang="he">אשמח לקבל עדכונים ודיוור על Pointy במייל (לא חובה, אפשר לבטל בכל רגע).</span><span lang="en">Send me news and offers about Pointy by email (optional, unsubscribe any time).</span></span></label>
+
+    <button class="btn btn-primary" id="submit" type="submit"><span lang="he">יצירת חשבון</span><span lang="en">Create account</span></button>
+    <p class="form-msg" id="msg" role="alert" aria-live="assertive"></p>
+    <p class="card-foot"><span lang="he">כבר יש לכם חשבון? <a href="login.html">כניסה</a></span><span lang="en">Already have an account? <a href="login.html">Sign in</a></span></p>
+  </form>
+
+  <div id="checkInbox" hidden tabindex="-1">
+    <h1><span lang="he">בדקו את המייל</span><span lang="en">Check your email</span></h1>
+    <p class="sub"><span lang="he">שלחנו קישור לאימות אל</span><span lang="en">We sent a verification link to</span> <strong id="sentTo" dir="ltr"></strong>.
+      <span lang="he">לחצו עליו כדי להפעיל את החשבון. לא הגיע? בדקו בספאם.</span><span lang="en">Click it to activate your account. Not there? Check spam.</span></p>
+    <button class="btn btn-ghost" id="resend" type="button"><span class="label"><span lang="he">שליחה חוזרת</span><span lang="en">Resend email</span></span></button>
+    <p class="form-msg" id="resendMsg" role="status" aria-live="polite"></p>
+  </div>
+</div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav class="foot-links" aria-label="Legal">
+      <a href="privacy.html"><span lang="he">פרטיות</span><span lang="en">Privacy</span></a>
+      <a href="terms.html"><span lang="he">תנאי שימוש</span><span lang="en">Terms</span></a>
+      <a href="cookies.html"><span lang="he">עוגיות</span><span lang="en">Cookies</span></a>
+      <a href="accessibility.html"><span lang="he">הצהרת נגישות</span><span lang="en">Accessibility</span></a>
+    </nav>
+    <span>© 2026 Pointy</span>
+    <p class="foot-note"><span lang="he">Pointy אינו קשור ל־Apple, ל־Anthropic או ל־Adobe. השמות שלהם הם סימנים מסחריים של בעליהם.</span><span lang="en">Pointy is not affiliated with Apple, Anthropic or Adobe. Their names are trademarks of their owners.</span></p>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="assets/common.js"></script>
+<script src="vendor/supabase/supabase.js"></script>
+<script src="assets/config.js"></script>
+<script src="assets/auth.js"></script>
+</body>
+</html>
