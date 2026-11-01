@@ -61,7 +61,7 @@ SHELL = """<!doctype html>
       <a href="accessibility.html"><span lang="he">הצהרת נגישות</span><span lang="en">Accessibility</span></a>
     </nav>
     <span>© 2026 Pointy</span>
-    <p class="foot-note"><span lang="he">Pointy אינו קשור ל־Apple, ל־Anthropic או ל־Adobe. השמות שלהם הם סימנים מסחריים של בעליהם.</span><span lang="en">Pointy is not affiliated with Apple, Anthropic or Adobe. Their names are trademarks of their owners.</span></p>
+    <p class="foot-note"><span lang="he">Pointy אינו קשור ל־Apple, ל־Microsoft, ל־Anthropic או ל־Adobe. השמות שלהם הם סימנים מסחריים של בעליהם.</span><span lang="en">Pointy is not affiliated with Apple, Microsoft, Anthropic or Adobe. Their names are trademarks of their owners.</span></p>
   </div>
 </footer>
 
