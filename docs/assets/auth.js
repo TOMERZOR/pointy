@@ -339,7 +339,8 @@
           btn.disabled = false;
           const type = body?.error?.type;
           say($("payMsg"), "error", type === "payments_closed" || !res ? t("paySoon")
-            : type === "already_licensed" || type === "already_subscribed" ? t("alreadyOwned") : t("payFailed"));
+            : type === "already_licensed" || type === "already_subscribed" ? t("alreadyOwned")
+            : t("payFailed") + (body?.error?.payplus ? ` (PayPlus: ${body.error.payplus})` : ""));
           $("payMsg").scrollIntoView({ block: "center" });
         });
       });
