@@ -1,7 +1,7 @@
 {
-  "version": "1.1.0",
-  "url": "https://trypointy.com/download/PointySetup-1.1.0.exe",
-  "sha256": "70a14bf454b94467caefa6808271fcc288803759dfae0df0679da070c1073fdd",
-  "signature": "YQ5P0g0GdXhaE03sBynYISHYN3TkwV+xvuku/0HPAFAujcBaLFNz6zviAT8W8o9BGR++iw9BcpvAqkS7yRZiDg==",
-  "notes": "More accurate pointing, steps that wait for the screen to settle, and automatic updates."
+  "version": "1.2.0",
+  "url": "https://trypointy.com/download/PointySetup-1.2.0.exe",
+  "sha256": "572d65b63e171eb97515db139b0ca0285b8cc792646d8374c3ee7abbeca794d7",
+  "signature": "4YHSci2qao4pmp1/8jkpkL9V9wzVC+xTLIZXTIq4JaYwzAzo6Y20DfMY7YujeGGghVOrADKsI/0Uq/uIzMV7BQ==",
+  "notes": "Max: longer questions, up to 60 steps. Fast mode now only appears on plans that include it."
 }
