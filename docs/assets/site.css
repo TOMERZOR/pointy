@@ -564,3 +564,6 @@ html[data-lang="en"] .about-head .lead { max-width: 56ch; }
 .app-pw { margin: 4px 0 18px; padding-top: 14px; border-top: 1px solid var(--line); }
 .app-pw .btn { margin-top: 4px; }
 #consent { margin-top: 24px; }
+.gsi { display: flex; justify-content: center; min-height: 44px; }
+.gsi > div { width: 100%; }
+.gsi iframe { margin: 0 auto !important; }

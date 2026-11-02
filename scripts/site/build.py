@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Builds docs/<page>.html from pages/<page>.html with the shared head, nav and footer.
 
-Each page file starts with one JSON line: {"he": "<title>", "en": "<title>", "scripts": [...], "main_class": "..."}.
+Each page file starts with one JSON line: {"he": "<title>", "en": "<title>", "scripts": [...], "main_class": "...",
+"google_signin": true (lets the page load Google's sign-in button)}.
 {{KEY}} placeholders come from config.json; an empty value renders as a highlighted TODO and
 `--check` exits non-zero, so a page with missing legal details can't be published by accident.
 Every link to our own assets/*.css|js, in these pages and in the hand-written ones (index.html, download/),
@@ -20,7 +21,7 @@ SHELL = """<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self' https://lrfohfcwsgjxeqdbqwbg.supabase.co; form-action 'self'; base-uri 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'{gsi_script}; style-src 'self'{gsi_style}; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self' https://lrfohfcwsgjxeqdbqwbg.supabase.co{gsi_connect};{gsi_frame} form-action 'self'; base-uri 'self'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 {robots}<title>{title_he}</title>
 <meta name="theme-color" content="#0e0e10" media="(prefers-color-scheme: dark)">
@@ -96,6 +97,11 @@ def build(name):
     html = SHELL.format(
         title_he=meta["he"], title_en=meta["en"], main_class=meta.get("main_class", ""),
         robots='<meta name="robots" content="noindex">\n' if meta.get("noindex") else "",
+        # Pages with Google's sign-in button may load it from Google (sources from Google's GIS setup guide). Its button
+        # injects inline styles; scripts stay limited to our own files and Google's client.
+        **({"gsi_script": " https://accounts.google.com/gsi/client", "gsi_style": " 'unsafe-inline' https://accounts.google.com/gsi/style",
+            "gsi_connect": " https://accounts.google.com/gsi/", "gsi_frame": " frame-src https://accounts.google.com/gsi/;"}
+           if meta.get("google_signin") else dict.fromkeys(("gsi_script", "gsi_style", "gsi_connect", "gsi_frame"), "")),
         body=fill(body.rstrip()),
         scripts="\n".join(f'<script src="{s}"></script>' for s in meta.get("scripts", [])))
     open(os.path.join(DOCS, name), "w").write(html)

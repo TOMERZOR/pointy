@@ -1,9 +1,10 @@
-{"he": "יצירת חשבון · Pointy", "en": "Create account · Pointy", "scripts": ["vendor/supabase/supabase.js", "assets/config.js", "assets/auth.js"]}
+{"he": "יצירת חשבון · Pointy", "en": "Create account · Pointy", "google_signin": true, "scripts": ["vendor/supabase/supabase.js", "assets/config.js", "assets/auth.js"]}
 <div class="card" data-page="signup">
   <form id="signupForm" novalidate>
     <h1><span lang="he">יצירת חשבון</span><span lang="en">Create your account</span></h1>
     <p class="sub"><span lang="he">מתחילים בחינם: בלי מפתח API ובלי הגדרות.</span><span lang="en">Start free: no API key, no setup.</span></p>
     <div class="oauth" data-oauth hidden>
+      <div class="gsi" data-gsi hidden></div>
       <button class="btn btn-ghost oauth-btn" type="button" data-provider="google"><i class="ph ph-google-logo" aria-hidden="true"></i><span lang="he">המשך עם Google</span><span lang="en">Continue with Google</span></button>
       <button class="btn btn-ghost oauth-btn" type="button" data-provider="apple"><i class="ph ph-apple-logo" aria-hidden="true"></i><span lang="he">המשך עם Apple</span><span lang="en">Continue with Apple</span></button>
       <p class="hint oauth-note"><span lang="he">במסך הבא תאשרו את הגיל ואת תנאי השימוש.</span><span lang="en">You'll confirm your age and the terms on the next screen.</span></p>

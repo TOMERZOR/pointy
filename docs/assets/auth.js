@@ -165,6 +165,41 @@
     box.hidden = !buttons.some(b => !b.hidden);
   });
 
+  // Google's own button signs in right here on trypointy.com, so Google's screen names our domain instead of
+  // the Supabase callback host. Until (or unless) Google's script loads, the redirect button above stays.
+  const gsiBoxes = [...document.querySelectorAll("[data-gsi]")];
+  if (providers.includes("google") && cfg.googleClientId && gsiBoxes.length) {
+    const rawNonce = crypto.getRandomValues(new Uint32Array(4)).join("-");
+    const script = document.createElement("script");
+    script.src = "https://accounts.google.com/gsi/client";
+    script.async = true;
+    script.onload = async () => {
+      const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(rawNonce));
+      google.accounts.id.initialize({
+        client_id: cfg.googleClientId,
+        nonce: [...new Uint8Array(digest)].map(b => b.toString(16).padStart(2, "0")).join(""),
+        callback: async ({ credential }) => {
+          const { error } = await sb.auth.signInWithIdToken({ provider: "google", token: credential, nonce: rawNonce });
+          // The account page asks a new Google user for the age and terms consents.
+          if (!error) return location.replace(here("account.html"));
+          say($("msg"), "error", /database error/i.test(error.message) ? t("oauthExists") : t("oauthFailed"));
+        },
+      });
+      const dark = matchMedia("(prefers-color-scheme: dark)").matches;
+      Pointy.onLang(lang => gsiBoxes.forEach(el => {
+        el.replaceChildren();
+        el.hidden = false;
+        google.accounts.id.renderButton(el, {
+          type: "standard", theme: dark ? "filled_black" : "outline", size: "large", shape: "pill",
+          text: "continue_with", logo_alignment: "center", locale: lang,
+          width: Math.min(400, el.parentElement.clientWidth || 400),
+        });
+        el.parentElement.querySelector('[data-provider="google"]').hidden = true;
+      }));
+    };
+    document.head.append(script);
+  }
+
   // Our email templates link straight to these pages with a one-time token_hash. The token is spent only
   // when this script runs, so mail scanners that merely fetch the link can't use it up first.
   const query = new URLSearchParams(location.search);

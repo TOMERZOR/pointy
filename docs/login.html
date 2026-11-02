@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self' https://lrfohfcwsgjxeqdbqwbg.supabase.co; form-action 'self'; base-uri 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://accounts.google.com/gsi/client; style-src 'self' 'unsafe-inline' https://accounts.google.com/gsi/style; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self' https://lrfohfcwsgjxeqdbqwbg.supabase.co https://accounts.google.com/gsi/; frame-src https://accounts.google.com/gsi/; form-action 'self'; base-uri 'self'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>כניסה · Pointy</title>
 <meta name="theme-color" content="#0e0e10" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
 <link rel="icon" href="icon.png">
 <link rel="stylesheet" href="vendor/phosphor/style.css">
-<link rel="stylesheet" href="assets/site.css?v=f4920c8691">
+<link rel="stylesheet" href="assets/site.css?v=c44d16b7fb">
 </head>
 <body>
 <a class="skip" href="#main"><span lang="he">דילוג לתוכן</span><span lang="en">Skip to content</span></a>
@@ -41,6 +41,7 @@
     <h1><span lang="he">כניסה</span><span lang="en">Sign in</span></h1>
     <p class="sub"><span lang="he">ברוכים השבים.</span><span lang="en">Welcome back.</span></p>
     <div class="oauth" data-oauth hidden>
+      <div class="gsi" data-gsi hidden></div>
       <button class="btn btn-ghost oauth-btn" type="button" data-provider="google"><i class="ph ph-google-logo" aria-hidden="true"></i><span lang="he">המשך עם Google</span><span lang="en">Continue with Google</span></button>
       <button class="btn btn-ghost oauth-btn" type="button" data-provider="apple"><i class="ph ph-apple-logo" aria-hidden="true"></i><span lang="he">המשך עם Apple</span><span lang="en">Continue with Apple</span></button>
       <p class="or"><span><span lang="he">או עם אימייל</span><span lang="en">or with email</span></span></p>
@@ -97,7 +98,7 @@
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script src="assets/common.js?v=50aae05947"></script>
 <script src="vendor/supabase/supabase.js"></script>
-<script src="assets/config.js?v=253c7a283a"></script>
-<script src="assets/auth.js?v=427d3f2707"></script>
+<script src="assets/config.js?v=3b078694c2"></script>
+<script src="assets/auth.js?v=c6369751ab"></script>
 </body>
 </html>

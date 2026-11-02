@@ -1,9 +1,10 @@
-{"he": "כניסה · Pointy", "en": "Sign in · Pointy", "scripts": ["vendor/supabase/supabase.js", "assets/config.js", "assets/auth.js"]}
+{"he": "כניסה · Pointy", "en": "Sign in · Pointy", "google_signin": true, "scripts": ["vendor/supabase/supabase.js", "assets/config.js", "assets/auth.js"]}
 <div class="card" data-page="login">
   <form id="loginForm" novalidate>
     <h1><span lang="he">כניסה</span><span lang="en">Sign in</span></h1>
     <p class="sub"><span lang="he">ברוכים השבים.</span><span lang="en">Welcome back.</span></p>
     <div class="oauth" data-oauth hidden>
+      <div class="gsi" data-gsi hidden></div>
       <button class="btn btn-ghost oauth-btn" type="button" data-provider="google"><i class="ph ph-google-logo" aria-hidden="true"></i><span lang="he">המשך עם Google</span><span lang="en">Continue with Google</span></button>
       <button class="btn btn-ghost oauth-btn" type="button" data-provider="apple"><i class="ph ph-apple-logo" aria-hidden="true"></i><span lang="he">המשך עם Apple</span><span lang="en">Continue with Apple</span></button>
       <p class="or"><span><span lang="he">או עם אימייל</span><span lang="en">or with email</span></span></p>
