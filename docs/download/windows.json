@@ -1,7 +1,7 @@
 {
-  "version": "1.3.0",
-  "url": "https://trypointy.com/download/PointySetup-1.3.0.exe",
-  "sha256": "654c0551a8d26a1188601598e81225173252dd87c89fc80c7f9f97589978ace0",
-  "signature": "EVP8a4iXDdOC9QjrgBVzneslsSTSpzPs/Faoi6B/Sme8x2lm5qrKnmvd5R/bLXwEgUm+m+YjMTVXTqrLJp3kBg==",
-  "notes": "Max: export a finished guide as a PDF with screenshots, and save guides to play again from the tray, without using a question."
+  "version": "1.3.1",
+  "url": "https://trypointy.com/download/PointySetup-1.3.1.exe",
+  "sha256": "bbe873438a532f9732f28a4b6f569436508d5178048527431de8d7c51cd3aabf",
+  "signature": "qzx6tghexA33JxJsiCxD5ttQNLyF6bmkI0efY12GwZAoJf4mklqzMo+cUgPKL8BvCnEESUhD67EisgnSNOxOBA==",
+  "notes": "Developer license now ₪199. Clearer model names: Sonnet is the fastest to point, Haiku the lowest cost."
 }
