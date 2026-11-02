@@ -1,7 +1,7 @@
 {
-  "version": "1.3.5",
-  "url": "https://trypointy.com/download/PointySetup-1.3.5.exe",
-  "sha256": "7410b05af5c9dc0948844180d5cf680b663663dff3f54fa05071928f0b0e1908",
-  "signature": "ZUU1EBMazj98AvM8sC6oHVqwFhlHWG9FiDmAI52umS71hvFaxXVyIQJ0eW/Re/QPrrELEx6TMlwc5Ao78W51Aw==",
-  "notes": "Continue with Apple: sign in with your Apple ID, no password needed"
+  "version": "1.3.6",
+  "url": "https://trypointy.com/download/PointySetup-1.3.6.exe",
+  "sha256": "2a64297a38a376a112b44acd5e68d7059e6ebfc2c0572fa0251182f58e1032e7",
+  "signature": "RHGHHTMqxwAGdE3m9xK3/K5M1eOKRjOwCKOO4VFY/dcXRXlvXD/KqhBnBj8jCDCE0Vfc6DBJAXyLUfPd7OvDDw==",
+  "notes": "The ask bar's hint rolls between Hebrew and English; voice uses Hebrew automatically on a Hebrew PC"
 }
