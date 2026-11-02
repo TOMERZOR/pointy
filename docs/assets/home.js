@@ -38,7 +38,9 @@
     const fromHash = tabs.find(t => "#" + t.getAttribute("aria-controls") === location.hash);
     const isWindows = /Windows/.test(navigator.userAgent);
     pickOS(fromHash || tabs[isWindows ? 1 : 0]);
-    if (fromHash) document.getElementById("install").scrollIntoView();
+    // The panel was hidden when the browser looked for the #fragment, so scroll there ourselves once the page
+    // has its final height (a smooth scroll started earlier gets cancelled by the load).
+    if (fromHash) addEventListener("load", () => document.getElementById("install").scrollIntoView({ behavior: "instant" }));
     tabs.forEach((t, i) => {
       t.addEventListener("click", () => pickOS(t));
       t.addEventListener("keydown", e => {
