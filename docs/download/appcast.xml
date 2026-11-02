@@ -3,15 +3,16 @@
   <channel>
     <title>Pointy</title>
     <item>
-      <title>Pointy 2.2.4</title>
-      <pubDate>Mon, 02 Nov 2026 17:14:15 +0000</pubDate>
-      <sparkle:version>11</sparkle:version>
-      <sparkle:shortVersionString>2.2.4</sparkle:shortVersionString>
+      <title>Pointy 2.2.5</title>
+      <pubDate>Mon, 02 Nov 2026 23:40:36 +0000</pubDate>
+      <sparkle:version>12</sparkle:version>
+      <sparkle:shortVersionString>2.2.5</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
       <description><![CDATA[<ul>
-<li>Continue with Apple: sign in with your Apple ID, no password needed</li>
+<li>The ask bar's hint now rolls between Hebrew and English</li>
+<li>Hebrew suggestions read right to left</li>
 </ul>]]></description>
-      <enclosure url="https://trypointy.com/download/Pointy-2.2.4.dmg" type="application/octet-stream" sparkle:edSignature="RiWrQOf+pXVBMNFIcxRDVxO3mXkrhc8sRaun5aPvwWUWJlX8MrkV/IlUXm/LTLUDAeaWzwhtc/KWgmCLmesnAw==" length="3708004" />
+      <enclosure url="https://trypointy.com/download/Pointy-2.2.5.dmg" type="application/octet-stream" sparkle:edSignature="D5aww96pOF/4+mbQeSA7A2UTTgqIjBk0qsodTfAXDbeDhXH+42OIzOW3QNbP/0zsF5VbevDsqxKoXZqWz7aLAQ==" length="3726890" />
     </item>
   </channel>
 </rss>
