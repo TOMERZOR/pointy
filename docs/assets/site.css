@@ -549,3 +549,7 @@ html[data-lang="en"] .about-head .lead { max-width: 56ch; }
 .why .cell .ico { margin-bottom: 10px; }
 .why .cell p { max-width: none; }
 .about-block.closing { padding-bottom: 24px; }
+
+/* ---------- 404 ---------- */
+.notfound .brand { margin-bottom: 40px; }
+.notfound [lang="en"] { font-size: 16px; }
