@@ -3,16 +3,18 @@
   <channel>
     <title>Pointy</title>
     <item>
-      <title>Pointy 2.1.0</title>
-      <pubDate>Mon, 02 Nov 2026 07:27:42 +0000</pubDate>
-      <sparkle:version>6</sparkle:version>
-      <sparkle:shortVersionString>2.1.0</sparkle:shortVersionString>
+      <title>Pointy 2.2.0</title>
+      <pubDate>Mon, 02 Nov 2026 09:24:19 +0000</pubDate>
+      <sparkle:version>7</sparkle:version>
+      <sparkle:shortVersionString>2.2.0</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
       <description><![CDATA[<ul>
-<li>Pointy now updates itself: you'll be offered new versions right here.</li>
-<li>More accurate pointing in menus and panels (Premiere, After Effects).</li>
+<li>Max: longer questions, up to 60 steps and 6 hours.</li>
+<li>Max: export a finished guide as a PDF with screenshots.</li>
+<li>Max: save a guide and play it again from the menu bar, without using a question.</li>
+<li>Fast mode now only appears on plans that include it.</li>
 </ul>]]></description>
-      <enclosure url="https://trypointy.com/download/Pointy-2.1.0.dmg" type="application/octet-stream" sparkle:edSignature="Di1Zj0lYUiNusVEd8FwtvX+0jVTg3X8+H4Di6CCaHntpOB9MS2XPoLZdf7K+Wn2ZdiXHVyOqmJ810TCkKvtsAQ==" length="3507702" />
+      <enclosure url="https://trypointy.com/download/Pointy-2.2.0.dmg" type="application/octet-stream" sparkle:edSignature="D6UopPG4+rVpL+TUT4C28rP3t//wcg/hs30830XIShCTnBChq4mz7K71UiKG9UJ6dDjwKztrCAW7u3+YayMrDw==" length="3561562" />
     </item>
   </channel>
 </rss>
