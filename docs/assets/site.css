@@ -437,6 +437,10 @@ a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-
 .foot-links { display: flex; flex-wrap: wrap; gap: 8px 18px; }
 .foot-links a { color: var(--muted); text-decoration: none; }
 .foot-links a:hover { color: var(--text); text-decoration: underline; }
+.foot-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; }
+.foot-social { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); text-decoration: none; }
+.foot-social:hover { color: var(--text); text-decoration: underline; }
+.foot-social i { font-size: 18px; }
 .foot-note { flex-basis: 100%; font-size: 13px; color: var(--muted); margin: 0; }
 
 /* ---------- Simple pages (policies, account) ---------- */

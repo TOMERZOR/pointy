@@ -67,7 +67,10 @@ SHELL = """<!doctype html>
       <a href="cookies.html"><span lang="he">עוגיות</span><span lang="en">Cookies</span></a>
       <a href="accessibility.html"><span lang="he">הצהרת נגישות</span><span lang="en">Accessibility</span></a>
     </nav>
-    <span>© 2026 Pointy</span>
+    <div class="foot-meta">
+      <a class="foot-social" href="https://www.instagram.com/trypointy/" rel="noopener"><i class="ph ph-instagram-logo" aria-hidden="true"></i><span lang="he">אינסטגרם</span><span lang="en">Instagram</span></a>
+      <span>© 2026 Pointy</span>
+    </div>
     <p class="foot-note"><span lang="he">Pointy אינו קשור ל־Apple, ל־Microsoft, ל־Anthropic או ל־Adobe. השמות שלהם הם סימנים מסחריים של בעליהם.</span><span lang="en">Pointy is not affiliated with Apple, Microsoft, Anthropic or Adobe. Their names are trademarks of their owners.</span></p>
   </div>
 </footer>
