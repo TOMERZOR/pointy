@@ -1,7 +1,7 @@
 {
-  "version": "1.3.4",
-  "url": "https://trypointy.com/download/PointySetup-1.3.4.exe",
-  "sha256": "6541b7ea882a1f303c1831ffcdc0506410d0bfec1df3e254543a3cc687fcdaaa",
-  "signature": "oVwcCgbC1HTsqmCJahcnCocqK/wZ+n6SHn5tqZcEx22QHRFTe1PeD4scRjZIJHmRWbfvsgJYTgfQJefztzzhCg==",
-  "notes": "Ask by voice in Hebrew: click the mic and speak Hebrew, English or most other languages\nChoose your voice language in Settings → General → Voice"
+  "version": "1.3.5",
+  "url": "https://trypointy.com/download/PointySetup-1.3.5.exe",
+  "sha256": "7410b05af5c9dc0948844180d5cf680b663663dff3f54fa05071928f0b0e1908",
+  "signature": "ZUU1EBMazj98AvM8sC6oHVqwFhlHWG9FiDmAI52umS71hvFaxXVyIQJ0eW/Re/QPrrELEx6TMlwc5Ao78W51Aw==",
+  "notes": "Continue with Apple: sign in with your Apple ID, no password needed"
 }
