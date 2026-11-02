@@ -307,6 +307,19 @@ a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-
 .check { display: flex; gap: 10px; align-items: flex-start; margin: 12px 0; font-size: 15px; line-height: 1.5; }
 .check input { width: 20px; height: 20px; margin: 1px 0 0; accent-color: var(--accent); flex: none; }
 .check a { color: var(--accent-text); }
+.choices { border: 0; padding: 0; min-width: 0; }
+.choices legend { padding: 0; margin-bottom: 8px; font-weight: 650; font-size: 15px; }
+.choices legend .hint { font-weight: 500; }
+.choice-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.choice { position: relative; }
+.choice input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.choice .pill {
+  display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border-radius: 999px; cursor: pointer;
+  font: 600 15px/1 var(--font); border: 1px solid rgb(127 127 127 / .45); transition: background .2s, border-color .2s;
+}
+.choice:hover .pill { background: var(--surface-2); }
+.choice input:checked + .pill { border-color: var(--accent); background: rgb(255 138 31 / .14); color: var(--accent-text); }
+.choice input:focus-visible + .pill { box-shadow: 0 0 0 3px rgb(255 138 31 / .35); }
 .form-msg { min-height: 1.5em; margin: 12px 0 0; font-size: 15px; }
 .form-msg.error { color: #e5484d; }
 .form-msg.ok { color: var(--accent-text); font-weight: 650; }

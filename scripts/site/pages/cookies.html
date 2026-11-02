@@ -3,18 +3,19 @@
   <h1>מדיניות עוגיות ואחסון בדפדפן</h1>
   <p class="updated">עודכן לאחרונה: {{UPDATED_HE}}</p>
 
-  <div class="callout"><strong>האתר לא משתמש בעוגיות (cookies) בכלל</strong>, ואין בו אנליטיקה, פרסום, פיקסלים או הקלטת גלישה. לכן גם אין צורך בחלון הסכמה.</div>
+  <div class="callout"><strong>האתר לא משתמש בעוגיות (cookies) בכלל</strong>, ואין בו כלי אנליטיקה או פרסום של צד שלישי, פיקסלים או הקלטת גלישה.</div>
 
-  <p>האתר שומר בדפדפן שלכם (ב־localStorage) רק את מה שנחוץ כדי שהוא יעבוד כמו שביקשתם:</p>
+  <p>האתר שומר בדפדפן שלכם (ב־localStorage) רק את הפריטים האלה:</p>
   <table>
     <thead><tr><th>שם</th><th>מטרה</th><th>מתי</th><th>משך</th></tr></thead>
     <tbody>
       <tr><td><code>pointy-lang</code></td><td>זוכר את השפה שבחרתם (עברית או אנגלית)</td><td>רק אם החלפתם שפה</td><td>עד שתמחקו את נתוני האתר</td></tr>
       <tr><td><code>pointy-billing</code></td><td>זוכר אם בחרתם במחירים חיוב חודשי או שנתי, כדי שדף החשבון ייפתח על אותה בחירה</td><td>רק אם לחצתם על הבחירה</td><td>עד שתמחקו את נתוני האתר</td></tr>
       <tr><td><code>sb-…-auth-token</code></td><td>משאיר אתכם מחוברים לחשבון</td><td>רק אחרי התחברות</td><td>עד התנתקות או פקיעת ההתחברות</td></tr>
+      <tr><td><code>pointy-utm</code></td><td>זוכר מאיזה קישור של קמפיין הגעתם (למשל מודעה), כדי שנדע איזה ערוץ הביא את החשבון</td><td>רק אם הקישור כלל תגי קמפיין (<code>utm_…</code>)</td><td>30 יום, או עד שנפתח חשבון</td></tr>
     </tbody>
   </table>
-  <p>שני הפריטים האלה נחוצים לתפקוד שביקשתם בעצמכם, ולא משמשים למעקב או לפרסום. אפשר למחוק אותם בכל רגע דרך הגדרות הדפדפן ("נתוני אתרים") או בהתנתקות מהחשבון.</p>
+  <p>שני הפריטים הראשונים נחוצים לתפקוד שביקשתם בעצמכם. <code>pointy-utm</code> מכיל רק את תגי הקמפיין שהיו בקישור, בלי מזהה אישי. הוא לא נשלח לשום צד שלישי, ומגיע אלינו רק אם תפתחו חשבון, יחד עם החשבון. אף אחד מהם לא משמש למעקב אחרי הגלישה שלכם או לפרסום. אפשר למחוק אותם בכל רגע דרך הגדרות הדפדפן ("נתוני אתרים") או בהתנתקות מהחשבון.</p>
   <p>שרתי האירוח של GitHub עשויים לרשום מידע טכני בכל טעינת דף; פירוט ב<a href="privacy.html">מדיניות הפרטיות</a>.</p>
   <p><strong>אם זה ישתנה:</strong> אם נוסיף אי פעם כלי אנליטיקה או שיווק שמשתמשים בעוגיות, נבקש את הסכמתכם מראש, עם אפשרות לסרב באותה קלות, ונעדכן את הדף הזה.</p>
 </article>
@@ -23,18 +24,19 @@
   <h1>Cookies and browser storage</h1>
   <p class="updated">Last updated: {{UPDATED_EN}}</p>
 
-  <div class="callout"><strong>This site uses no cookies at all</strong>, and has no analytics, advertising, pixels or session recording, so there's no consent banner to click through.</div>
+  <div class="callout"><strong>This site uses no cookies at all</strong>, and has no third-party analytics or advertising tools, pixels or session recording.</div>
 
-  <p>The site stores only what it needs to work the way you asked, in your browser's localStorage:</p>
+  <p>The site stores only these items, in your browser's localStorage:</p>
   <table>
     <thead><tr><th>Name</th><th>Purpose</th><th>When</th><th>Duration</th></tr></thead>
     <tbody>
       <tr><td><code>pointy-lang</code></td><td>Remembers your language (Hebrew or English)</td><td>Only if you switch language</td><td>Until you clear site data</td></tr>
       <tr><td><code>pointy-billing</code></td><td>Remembers whether you picked monthly or yearly billing on the pricing, so your account page opens on the same choice</td><td>Only if you click that choice</td><td>Until you clear site data</td></tr>
       <tr><td><code>sb-…-auth-token</code></td><td>Keeps you signed in to your account</td><td>Only after you sign in</td><td>Until you sign out or the session expires</td></tr>
+      <tr><td><code>pointy-utm</code></td><td>Remembers which campaign link (an ad, for example) brought you, so we know which channel each account came from</td><td>Only if the link had campaign tags (<code>utm_…</code>)</td><td>30 days, or until you create an account</td></tr>
     </tbody>
   </table>
-  <p>Both are strictly necessary for features you asked for, and are never used for tracking or advertising. You can remove them any time in your browser's site-data settings, or by signing out.</p>
+  <p>The first two are strictly necessary for features you asked for. <code>pointy-utm</code> holds only the campaign tags that were in the link, with no personal identifier. It's never sent to a third party, and reaches us only if you create an account, together with it. None of them are used to track your browsing or for advertising. You can remove them any time in your browser's site-data settings, or by signing out.</p>
   <p>GitHub's hosting servers may log technical data on each page load; see the <a href="privacy.html">Privacy Policy</a>.</p>
   <p><strong>If this changes:</strong> if we ever add analytics or marketing tools that use cookies, we'll ask for your consent first, with an equally easy way to refuse, and update this page.</p>
 </article>
