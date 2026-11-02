@@ -1,7 +1,7 @@
 {
-  "version": "1.3.2",
-  "url": "https://trypointy.com/download/PointySetup-1.3.2.exe",
-  "sha256": "b97aaa00b887eebabf2a8a8139fe29c0ad15f5e13a37f40a408370950e90bfcc",
-  "signature": "sS62ln0aD6F0WPWnPQ44lw6JagtfF3RNKj0wm4kBqb/msVmYR8bVmCo69IUez7NdxDlNFRjz09D5GRP7Fb6nBg==",
-  "notes": "Manage account and Upgrade open the website signed in as you"
+  "version": "1.3.3",
+  "url": "https://trypointy.com/download/PointySetup-1.3.3.exe",
+  "sha256": "2ecfee0fe753f33339389cab521aac09ebd4899ccd33e222e5a2725d6606539f",
+  "signature": "vE91AVODKHatwlAfVCTkklPg0E7yC8qK6WsvRfXy5KAFO8+SrPjr0csOL3ySE7HVIYytxy4PlBy2z3MPvLVCCA==",
+  "notes": "Continue with Google: sign in with your Google account\nDrag the guide bubble out of the way if it hides something; the pointer stays on what it explains"
 }
