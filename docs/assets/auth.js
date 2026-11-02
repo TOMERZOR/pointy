@@ -44,6 +44,7 @@
       confirmCancel: "לבטל את המנוי? החיובים הבאים ייעצרו, והגישה תימשך עד סוף התקופה ששולמה.",
       cancelled: "המנוי בוטל. הגישה נמשכת עד סוף התקופה ששולמה.",
       alreadyOwned: "כבר יש לכם את זה.",
+      confirmUpgrade: "לשדרג ל־Max? תשלמו עכשיו את המחיר המלא של Max, הימים שנשארו לכם ב־Pro יתווספו כימי Max, ומנוי ה־Pro ייעצר אוטומטית.",
     },
     en: {
       notReady: "Accounts aren't connected yet. Please try again soon.",
@@ -83,6 +84,7 @@
       confirmCancel: "Cancel your subscription? Future charges stop, and you keep access until the end of the paid period.",
       cancelled: "Subscription cancelled. You keep access until the end of the paid period.",
       alreadyOwned: "You already have this.",
+      confirmUpgrade: "Upgrade to Max? You'll pay the full Max price now, your unused Pro days are added as Max days, and your Pro subscription stops automatically.",
     }
   };
   const t = key => Pointy.t(S)[key];
@@ -329,11 +331,15 @@
       Pointy.onLang(render);
 
       // Buying: the server sets the price and returns a PayPlus payment page.
+      // An active Pro subscriber can still upgrade to Max (the server stops Pro and credits its unused days).
       const buy = $("buy");
+      const upgrading = paid && !quota.cancelled && quota.plan === "pro";
+      $("upgradeNote").hidden = !upgrading;
       buy.querySelectorAll("[data-plan]").forEach(btn => {
         btn.hidden = (btn.dataset.plan === "developer" && quota.byok_licensed)
-          || (btn.dataset.plan !== "developer" && paid && !quota.cancelled);
+          || (btn.dataset.plan !== "developer" && paid && !quota.cancelled && !(upgrading && btn.dataset.plan === "max"));
         btn.addEventListener("click", async () => {
+          if (upgrading && btn.dataset.plan === "max" && !window.confirm(t("confirmUpgrade"))) return;
           btn.disabled = true;
           const period = btn.dataset.plan === "developer" ? "month" : $("upgrade").dataset.period === "year" ? "year" : "month";
           const { data: s } = await sb.auth.getSession();
@@ -359,7 +365,7 @@
       });
       const anyToBuy = [...buy.querySelectorAll("[data-plan]")].some(b => !b.hidden);
       $("upgrade").hidden = !anyToBuy;
-      $("upgradeLink").hidden = !anyToBuy || (paid && !quota.cancelled);
+      $("upgradeLink").hidden = !anyToBuy || (paid && !quota.cancelled && !upgrading);
 
       const cancel = $("cancelSub");
       cancel.hidden = !(paid && !quota.cancelled);
