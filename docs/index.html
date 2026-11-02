@@ -19,7 +19,7 @@
 <link rel="apple-touch-icon" href="icon.png">
 <link rel="preload" as="image" href="hero.jpg">
 <link rel="stylesheet" href="vendor/phosphor/style.css">
-<link rel="stylesheet" href="assets/site.css?v=c44d16b7fb">
+<link rel="stylesheet" href="assets/site.css?v=d5c45c8e22">
 </head>
 <body>
 <a class="skip" href="#main"><span lang="he">דילוג לתוכן</span><span lang="en">Skip to content</span></a>
@@ -222,28 +222,238 @@
     </div>
   </section>
 
-  <!-- Install -->
+  <!-- Install: one guide per platform. The pictures are HTML mock-ups of the real screens, so they stay sharp
+       and follow light/dark mode; the step text names every button, so the pictures are decorative. -->
   <section id="install" class="pt0">
     <div class="wrap">
-      <h2 class="reveal"><span lang="he">איך מתקינים</span><span lang="en">How to install</span></h2>
-      <div class="steps">
-        <div class="step reveal">
-          <h3><span lang="he">גוררים לאפליקציות</span><span lang="en">Drag to Applications</span></h3>
-          <p><span lang="he">פותחים את קובץ ה־DMG וגוררים את Pointy לתיקיית Applications.</span><span lang="en">Open the DMG and drag Pointy into your Applications folder.</span></p>
-        </div>
-        <div class="step reveal" data-d="1">
-          <h3><span lang="he">מאשרים פתיחה</span><span lang="en">Allow it to open</span></h3>
-          <p><span lang="he">בפעם הראשונה: הגדרות המערכת ← פרטיות ואבטחה ← "פתח בכל זאת". ואז מאשרים הקלטת מסך.</span><span lang="en">The first time: System Settings → Privacy &amp; Security → "Open Anyway". Then allow Screen Recording.</span></p>
-        </div>
-        <div class="step reveal" data-d="2">
-          <h3><span lang="he">מתחברים ומתחילים</span><span lang="en">Sign in and start</span></h3>
-          <p><span lang="he">מתחברים עם <a href="signup.html">החשבון שלכם</a>, לוחצים ⌥ Space בכל מקום ושואלים. 10 שאלות בחודש בחינם.</span><span lang="en">Sign in with <a href="signup.html">your account</a>, press ⌥ Space anywhere and ask. 10 free questions a month.</span></p>
+      <svg class="sprite" aria-hidden="true"><symbol id="ptr" viewBox="0 0 24 28"><path d="M3 2v19l5.2-4.6 3.6 8 3.4-1.5-3.6-7.9H18z" fill="#ff8a1f" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></symbol></svg>
+      <div class="install-head reveal">
+        <h2><span lang="he">איך מתקינים</span><span lang="en">How to install</span></h2>
+        <div class="os-tabs" role="tablist" aria-label="Platform">
+          <button type="button" role="tab" id="tab-mac" aria-controls="install-mac" aria-selected="true"><i class="ph ph-apple-logo" aria-hidden="true"></i>Mac</button>
+          <button type="button" role="tab" id="tab-windows" aria-controls="install-windows" aria-selected="false" tabindex="-1"><i class="ph ph-windows-logo" aria-hidden="true"></i>Windows</button>
         </div>
       </div>
-      <div class="req reveal">
-        <i class="ph ph-info" aria-hidden="true"></i>
-        <span lang="he">דרוש macOS 26 ומעלה, Mac עם שבב Apple (M1 ומעלה) וחשבון Pointy.</span>
-        <span lang="en">Requires macOS 26 or later, a Mac with Apple silicon (M1 or later) and a Pointy account.</span>
+
+      <!-- Mac -->
+      <div class="guide" id="install-mac" role="tabpanel" aria-labelledby="tab-mac">
+        <ol class="gsteps">
+          <li class="gstep reveal">
+            <div class="gtext">
+              <h3><span lang="he">מורידים וגוררים לאפליקציות</span><span lang="en">Download and drag to Applications</span></h3>
+              <p><span lang="he">מורידים את <a href="download/Pointy.dmg">Pointy.dmg</a>, פותחים אותו בלחיצה כפולה, וגוררים את הסמל של Pointy אל התיקייה Applications.</span><span lang="en">Download <a href="download/Pointy.dmg">Pointy.dmg</a>, double-click to open it, and drag the Pointy icon onto the Applications folder.</span></p>
+            </div>
+            <figure class="ishot" aria-hidden="true">
+              <div class="mwin">
+                <div class="mbar"><i class="tl"></i><i class="tl"></i><i class="tl"></i><b>Pointy</b></div>
+                <div class="dmg">
+                  <div class="dmg-item"><img src="icon.png" alt="" width="64" height="64"><span>Pointy</span></div>
+                  <i class="ph ph-arrow-right dmg-arrow"></i>
+                  <div class="dmg-item"><span class="folder"><i class="ph ph-app-store-logo"></i></span><span>Applications</span></div>
+                </div>
+                <svg class="ptr ptr-dmg"><use href="#ptr"/></svg>
+              </div>
+            </figure>
+          </li>
+
+          <li class="gstep reveal">
+            <div class="gtext">
+              <h3><span lang="he">פותחים בפעם הראשונה</span><span lang="en">Open it the first time</span></h3>
+              <p><span lang="he">פותחים את Pointy מתיקיית האפליקציות. macOS יציג הודעה ש־Pointy לא נפתח (Not Opened), כי הוא עוד לא עבר אישור של Apple. לוחצים „סיום" (Done). זה קורה רק בפעם הראשונה.</span><span lang="en">Open Pointy from Applications. macOS says Pointy was "Not Opened", because Apple hasn't checked it yet. Click Done. This only happens the first time.</span></p>
+            </div>
+            <figure class="ishot" aria-hidden="true">
+              <div class="malert">
+                <img src="icon.png" alt="" width="52" height="52">
+                <b>"Pointy" Not Opened</b>
+                <p>Apple could not verify "Pointy" is free of malware that may harm your Mac or compromise your privacy.</p>
+                <div class="mbtns"><span class="mbtn">Move to Trash</span><span class="mbtn is-target">Done</span></div>
+                <svg class="ptr ptr-alert"><use href="#ptr"/></svg>
+              </div>
+            </figure>
+          </li>
+
+          <li class="gstep reveal">
+            <div class="gtext">
+              <h3><span lang="he">מאשרים ב„פרטיות ואבטחה"</span><span lang="en">Allow it in Privacy &amp; Security</span></h3>
+              <p><span lang="he">פותחים הגדרות המערכת ← פרטיות ואבטחה (Privacy &amp; Security), גוללים למטה עד השורה על Pointy, ולוחצים „פתח בכל זאת" (Open Anyway). מאשרים עם Touch ID או הסיסמה של המק, ו־Pointy נפתח.</span><span lang="en">Open System Settings → Privacy &amp; Security, scroll down to the line about Pointy and click Open Anyway. Confirm with Touch ID or your Mac password, and Pointy opens.</span></p>
+            </div>
+            <figure class="ishot" aria-hidden="true">
+              <div class="mwin msettings">
+                <div class="mside">
+                  <i class="tls"><i class="tl"></i><i class="tl"></i><i class="tl"></i></i>
+                  <span><i class="sq sq-gray"></i>General</span>
+                  <span><i class="sq sq-blue"></i>Wi‑Fi</span>
+                  <span><i class="sq sq-gray"></i>Displays</span>
+                  <span class="on"><i class="sq sq-blue"></i>Privacy &amp; Security</span>
+                  <span><i class="sq sq-gray"></i>Desktop &amp; Dock</span>
+                </div>
+                <div class="mmain">
+                  <b class="mtitle">Privacy &amp; Security</b>
+                  <small>Security</small>
+                  <div class="mrow">
+                    <span>"Pointy" was blocked to protect your Mac.</span>
+                    <span class="mbtn is-target">Open Anyway</span>
+                  </div>
+                  <div class="mrow mrow-dim"><span>Allow applications from</span><span class="mpop">App Store &amp; Known Developers</span></div>
+                </div>
+                <svg class="ptr ptr-settings"><use href="#ptr"/></svg>
+              </div>
+            </figure>
+          </li>
+
+          <li class="gstep reveal">
+            <div class="gtext">
+              <h3><span lang="he">נותנים הרשאות</span><span lang="en">Grant permissions</span></h3>
+              <p><span lang="he">Pointy מבקש הקלטת מסך (חובה: כך הוא רואה את המסך כששואלים) ונגישות (רשות: כך הוא מצביע בדיוק על הכפתור). לוחצים Allow ומדליקים את Pointy בחלון שנפתח. אחרי הקלטת מסך צריך לפתוח את Pointy מחדש.</span><span lang="en">Pointy asks for Screen Recording (required: that's how it sees your screen when you ask) and Accessibility (optional: it lands exactly on the button). Click Allow and switch Pointy on in the window that opens. After Screen Recording, reopen Pointy.</span></p>
+            </div>
+            <figure class="ishot" aria-hidden="true">
+              <div class="mwin pwin">
+                <div class="mbar"><i class="tl"></i><i class="tl"></i><i class="tl"></i></div>
+                <b class="ptitle">A few permissions</b>
+                <small class="psub">Pointy only looks at your screen when you ask it something.</small>
+                <div class="perms">
+                  <div class="perm"><i class="ph ph-record pico"></i><span><b>Screen Recording</b><small>Required — lets Pointy see what you see.</small></span><span class="pbtn is-target">Allow</span></div>
+                  <div class="perm"><i class="ph ph-person-arms-spread pico"></i><span><b>Accessibility</b><small>Optional — snaps to exact buttons.</small></span><i class="ph ph-check-circle pok"></i></div>
+                  <div class="perm"><i class="ph ph-microphone pico"></i><span><b>Microphone</b><small>Optional — ask with your voice.</small></span><span class="pbtn">Allow</span></div>
+                </div>
+                <svg class="ptr ptr-perm"><use href="#ptr"/></svg>
+              </div>
+            </figure>
+          </li>
+
+          <li class="gstep reveal">
+            <div class="gtext">
+              <h3><span lang="he">מתחברים</span><span lang="en">Sign in</span></h3>
+              <p><span lang="he">נכנסים עם החשבון מהאתר, או <a href="signup.html">פותחים חשבון חינמי</a>: 10 שאלות בחודש, בלי כרטיס אשראי. נרשמתם עם Google? קובעים סיסמה לאפליקציה ב<a href="account.html">דף החשבון</a> ונכנסים איתה.</span><span lang="en">Sign in with your account from the site, or <a href="signup.html">create a free one</a>: 10 questions a month, no credit card. Signed up with Google? Set an app password on your <a href="account.html">account page</a> and sign in with it.</span></p>
+            </div>
+            <figure class="ishot" aria-hidden="true">
+              <div class="mwin pwin">
+                <div class="mbar"><i class="tl"></i><i class="tl"></i><i class="tl"></i></div>
+                <b class="ptitle">Sign in to Pointy</b>
+                <small class="psub">Start free with 10 questions a month. No API key, no setup.</small>
+                <span class="ifield">you@example.com</span>
+                <span class="ifield">••••••••••••</span>
+                <span class="pbtn pbtn-wide is-target">Sign in</span>
+                <svg class="ptr ptr-signin"><use href="#ptr"/></svg>
+              </div>
+            </figure>
+          </li>
+
+          <li class="gstep reveal">
+            <div class="gtext">
+              <h3><span lang="he">לוחצים ⌥ Space ושואלים</span><span lang="en">Press ⌥ Space and ask</span></h3>
+              <p><span lang="he">בכל אפליקציה לוחצים ⌥ Space (Option ורווח), כותבים או אומרים מה רוצים לעשות, ו־Pointy מצביע על המקום, צעד אחרי צעד. הסמל שלו יושב בשורת התפריטים למעלה.</span><span lang="en">In any app, press ⌥ Space (Option + Space), type or say what you want to do, and Pointy points the way, one step at a time. Its icon lives in the menu bar.</span></p>
+            </div>
+            <figure class="ishot" aria-hidden="true">
+              <div class="ask">
+                <div class="ikeys"><kbd>⌥</kbd><kbd class="wide">Space</kbd></div>
+                <div class="askbar"><i class="ph ph-sparkle"></i><span>How do I export this as a PDF?</span><i class="ph ph-microphone"></i></div>
+              </div>
+            </figure>
+          </li>
+        </ol>
+        <div class="req reveal">
+          <i class="ph ph-info" aria-hidden="true"></i>
+          <span lang="he">דרוש macOS 26 ומעלה ו־Mac עם שבב Apple (M1 ומעלה). מכאן והלאה Pointy מתעדכן לבד, בלי להוריד מחדש.</span>
+          <span lang="en">Requires macOS 26 or later and a Mac with Apple silicon (M1 or later). From then on Pointy updates itself, no re-download.</span>
+        </div>
+      </div>
+
+      <!-- Windows -->
+      <div class="guide" id="install-windows" role="tabpanel" aria-labelledby="tab-windows" hidden>
+        <ol class="gsteps">
+          <li class="gstep reveal">
+            <div class="gtext">
+              <h3><span lang="he">מורידים ומריצים את המתקין</span><span lang="en">Download and run the installer</span></h3>
+              <p><span lang="he">מורידים את <a href="download/PointySetup.exe">PointySetup.exe</a> ופותחים אותו מרשימת ההורדות של הדפדפן.</span><span lang="en">Download <a href="download/PointySetup.exe">PointySetup.exe</a> and open it from your browser's downloads.</span></p>
+            </div>
+            <figure class="ishot ishot-win" aria-hidden="true">
+              <div class="wwin wdl">
+                <div class="wdl-head"><b>Downloads</b><i class="ph ph-folder-simple"></i><i class="ph ph-magnifying-glass"></i><i class="ph ph-dots-three"></i></div>
+                <div class="wdl-row">
+                  <img src="icon.png" alt="" width="34" height="34">
+                  <span><b>PointySetup.exe</b><span class="wlink is-target">Open file</span></span>
+                </div>
+                <svg class="ptr ptr-dl"><use href="#ptr"/></svg>
+              </div>
+            </figure>
+          </li>
+
+          <li class="gstep reveal">
+            <div class="gtext">
+              <h3><span lang="he">אם מופיע מסך כחול</span><span lang="en">If a blue screen appears</span></h3>
+              <p><span lang="he">Windows מציג „Windows protected your PC" כי המתקין עוד לא חתום דיגיטלית. לוחצים „More info", ואז „Run anyway". זה קורה רק בהתקנה.</span><span lang="en">Windows shows "Windows protected your PC" because the installer isn't digitally signed yet. Click More info, then Run anyway. It only happens when installing.</span></p>
+            </div>
+            <figure class="ishot ishot-win" aria-hidden="true">
+              <div class="smart">
+                <span class="smart-x">✕</span>
+                <b>Windows protected your PC</b>
+                <p>Microsoft Defender SmartScreen prevented an unrecognized app from starting. Running this app might put your PC at risk.</p>
+                <p class="smart-meta">App: PointySetup.exe<br>Publisher: Unknown publisher</p>
+                <div class="smart-btns"><span class="sbtn is-target">Run anyway</span><span class="sbtn">Don't run</span></div>
+                <svg class="ptr ptr-smart"><use href="#ptr"/></svg>
+              </div>
+            </figure>
+          </li>
+
+          <li class="gstep reveal">
+            <div class="gtext">
+              <h3><span lang="he">מתקינים</span><span lang="en">Install</span></h3>
+              <p><span lang="he">בוחרים אם לפתוח את Pointy כש־Windows עולה (מומלץ) ואם להוסיף קיצור דרך לשולחן העבודה, ולוחצים Install. לא צריך הרשאות מנהל, וזה לוקח כמה שניות.</span><span lang="en">Choose whether Pointy opens when Windows starts (recommended) and whether to add a desktop shortcut, then click Install. No admin rights needed, and it takes a few seconds.</span></p>
+            </div>
+            <figure class="ishot ishot-win" aria-hidden="true">
+              <div class="wwin wiz">
+                <div class="wbar"><span>Setup - Pointy</span><i>—</i><i>☐</i><i>✕</i></div>
+                <div class="wiz-body">
+                  <b>Select Additional Tasks</b>
+                  <small>Which additional tasks should be performed?</small>
+                  <span class="chk on">Open Pointy when Windows starts</span>
+                  <span class="chk">Create a desktop shortcut</span>
+                </div>
+                <div class="wiz-foot"><span class="wbtn">Back</span><span class="wbtn wbtn-main is-target">Install</span><span class="wbtn">Cancel</span></div>
+                <svg class="ptr ptr-wiz"><use href="#ptr"/></svg>
+              </div>
+            </figure>
+          </li>
+
+          <li class="gstep reveal">
+            <div class="gtext">
+              <h3><span lang="he">מתחברים</span><span lang="en">Sign in</span></h3>
+              <p><span lang="he">בחלון הפתיחה לוחצים Sign in ונכנסים עם החשבון מהאתר, או Create a free account לחשבון חדש. נרשמתם עם Google? קובעים סיסמה לאפליקציה ב<a href="account.html">דף החשבון</a>.</span><span lang="en">In the welcome window click Sign in and use your account from the site, or Create a free account. Signed up with Google? Set an app password on your <a href="account.html">account page</a>.</span></p>
+            </div>
+            <figure class="ishot ishot-win" aria-hidden="true">
+              <div class="wwin welcome">
+                <div class="wbar"><span>Welcome to Pointy</span><i>—</i><i>✕</i></div>
+                <div class="welcome-body">
+                  <img src="icon.png" alt="" width="44" height="44">
+                  <b>Meet Pointy</b>
+                  <small>Ask how to do anything on your PC. Pointy shows you exactly where to click.</small>
+                  <div class="welcome-btns"><span class="pbtn pbtn-ghost">Create a free account</span><span class="pbtn is-target">Sign in</span></div>
+                </div>
+                <svg class="ptr ptr-welcome"><use href="#ptr"/></svg>
+              </div>
+            </figure>
+          </li>
+
+          <li class="gstep reveal">
+            <div class="gtext">
+              <h3><span lang="he">לוחצים Alt + Space ושואלים</span><span lang="en">Press Alt + Space and ask</span></h3>
+              <p><span lang="he">בכל אפליקציה לוחצים Alt + Space, כותבים או אומרים מה רוצים לעשות, ו־Pointy מצביע על המקום, צעד אחרי צעד. הסמל שלו יושב ליד השעון בשורת המשימות, ומשם ההגדרות והעדכונים.</span><span lang="en">In any app, press Alt + Space, type or say what you want to do, and Pointy points the way, one step at a time. Its icon sits by the clock on the taskbar, with Settings and updates.</span></p>
+            </div>
+            <figure class="ishot ishot-win" aria-hidden="true">
+              <div class="ask">
+                <div class="ikeys"><kbd class="wide-s">Alt</kbd><kbd class="wide">Space</kbd></div>
+                <div class="askbar"><i class="ph ph-sparkle"></i><span>How do I add a page number in Word?</span><i class="ph ph-microphone"></i></div>
+              </div>
+              <div class="taskbar"><i class="ph ph-windows-logo"></i><span class="tray"><i class="ph ph-caret-up"></i><img src="icon.png" alt="" width="16" height="16"><i class="ph ph-wifi-high"></i><span>14:32</span></span></div>
+            </figure>
+          </li>
+        </ol>
+        <div class="req reveal">
+          <i class="ph ph-info" aria-hidden="true"></i>
+          <span lang="he">דרוש Windows 10 או 11 (64 ביט). מכאן והלאה Pointy מתעדכן לבד, בלי להוריד מחדש.</span>
+          <span lang="en">Requires Windows 10 or 11 (64-bit). From then on Pointy updates itself, no re-download.</span>
+        </div>
       </div>
     </div>
   </section>
@@ -310,6 +520,6 @@
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script src="assets/common.js?v=50aae05947"></script>
-<script src="assets/home.js?v=a9c3efec87"></script>
+<script src="assets/home.js?v=cd28415d40"></script>
 </body>
 </html>

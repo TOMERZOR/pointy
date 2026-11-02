@@ -22,6 +22,33 @@
     }));
   }
 
+  // Install guide: Mac / Windows tabs. Opens on the visitor's own system; a link to #install-windows or
+  // #install-mac (the download page has both) picks that one.
+  const tabs = [...document.querySelectorAll(".os-tabs [role=tab]")];
+  function pickOS(tab, focus) {
+    tabs.forEach(t => {
+      const on = t === tab;
+      t.setAttribute("aria-selected", String(on));
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+    });
+    if (focus) tab.focus();
+  }
+  if (tabs.length) {
+    const fromHash = tabs.find(t => "#" + t.getAttribute("aria-controls") === location.hash);
+    const isWindows = /Windows/.test(navigator.userAgent);
+    pickOS(fromHash || tabs[isWindows ? 1 : 0]);
+    if (fromHash) document.getElementById("install").scrollIntoView();
+    tabs.forEach((t, i) => {
+      t.addEventListener("click", () => pickOS(t));
+      t.addEventListener("keydown", e => {
+        if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+        e.preventDefault();
+        pickOS(tabs[(i + 1) % tabs.length], true);
+      });
+    });
+  }
+
   // Demo video: pause/play (moving content must be pausable) and no autoplay with "Reduce motion".
   const video = document.getElementById("demo");
   const soundBtn = document.getElementById("soundBtn");
