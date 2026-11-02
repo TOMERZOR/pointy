@@ -311,7 +311,7 @@
         $("acctPlanBadge").dataset.plan = quota.plan;
         $("acctPlanLine").textContent = !paid ? t("freeLine")
           : quota.cancelled ? t("endsOn") + date(quota.paid_until)
-          : `${t(quota.period === "year" ? "priceYear" : "price")[quota.plan]} · ${t("renews")}${date(quota.paid_until)}`;
+          : `${t(quota.period === "year" ? "priceYear" : "price")[quota.plan]} · ${t("renews")}${date(quota.renews_at || quota.paid_until)}`;
         $("acctToday").textContent = t("ofLeft")(quota.used_day, quota.limit_day);
         $("acctMonth").textContent = t("ofLeft")(quota.used_month, quota.limit_month);
         $("acctDev").textContent = quota.byok_licensed ? t("licensed") : t("notLicensed");
