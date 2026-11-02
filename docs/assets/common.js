@@ -75,6 +75,25 @@
   };
 
   applyLang(lang);
+
+  // Monthly / yearly switches ([data-billing] holds one .billing group). Monthly is the default and the only
+  // view without JavaScript; the choice is remembered so the account page opens on what was picked on the home page.
+  document.querySelectorAll("[data-billing]").forEach(box => {
+    const group = box.querySelector(".billing");
+    if (!group) return;
+    const set = period => {
+      box.dataset.period = period;
+      group.querySelectorAll("[data-set-period]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.setPeriod === period)));
+    };
+    set(store.get("pointy-billing") === "year" ? "year" : "month");
+    group.hidden = false;
+    group.addEventListener("click", e => {
+      const b = e.target.closest("[data-set-period]");
+      if (!b) return;
+      set(b.dataset.setPeriod);
+      store.set("pointy-billing", b.dataset.setPeriod);
+    });
+  });
   const langBtn = document.getElementById("langBtn");
   if (langBtn) langBtn.addEventListener("click", () => {
     const next = lang === "he" ? "en" : "he";

@@ -35,7 +35,9 @@
       renews: "מתחדש ב־", endsOn: "בוטל, פעיל עד ",
       freeLine: "10 שאלות בחודש, בלי כרטיס אשראי",
       price: { pro: "₪49 לחודש", max: "₪149 לחודש" },
+      priceYear: { pro: "₪490 לשנה", max: "₪1,490 לשנה" },
       paySoon: "התשלומים נפתחים בקרוב. נעדכן אתכם במייל.",
+      yearSoon: "החיוב השנתי עוד לא פתוח. בינתיים אפשר לבחור חיוב חודשי.",
       payFailed: "לא הצלחנו לפתוח את דף התשלום. נסו שוב.",
       paySuccess: "התשלום התקבל, תודה! זה יכול לקחת דקה עד שהמסלול יתעדכן.",
       payCancelled: "התשלום לא הושלם. לא חויבתם.",
@@ -72,7 +74,9 @@
       renews: "renews on ", endsOn: "Cancelled, active until ",
       freeLine: "10 questions a month, no credit card",
       price: { pro: "₪49/month", max: "₪149/month" },
+      priceYear: { pro: "₪490/year", max: "₪1,490/year" },
       paySoon: "Payments open soon. We'll email you.",
+      yearSoon: "Yearly billing isn't open yet. You can choose monthly for now.",
       payFailed: "Couldn't open the payment page. Please try again.",
       paySuccess: "Payment received, thank you! Your plan may take a minute to update.",
       payCancelled: "The payment wasn't completed. You weren't charged.",
@@ -307,7 +311,7 @@
         $("acctPlanBadge").dataset.plan = quota.plan;
         $("acctPlanLine").textContent = !paid ? t("freeLine")
           : quota.cancelled ? t("endsOn") + date(quota.paid_until)
-          : `${t("price")[quota.plan]} · ${t("renews")}${date(quota.paid_until)}`;
+          : `${t(quota.period === "year" ? "priceYear" : "price")[quota.plan]} · ${t("renews")}${date(quota.paid_until)}`;
         $("acctToday").textContent = t("ofLeft")(quota.used_day, quota.limit_day);
         $("acctMonth").textContent = t("ofLeft")(quota.used_month, quota.limit_month);
         $("acctDev").textContent = quota.byok_licensed ? t("licensed") : t("notLicensed");
@@ -328,19 +332,23 @@
           || (btn.dataset.plan !== "developer" && paid && !quota.cancelled);
         btn.addEventListener("click", async () => {
           btn.disabled = true;
+          const period = btn.dataset.plan === "developer" ? "month" : $("upgrade").dataset.period === "year" ? "year" : "month";
           const { data: s } = await sb.auth.getSession();
           const res = await fetch(`${cfg.supabaseUrl}/functions/v1/payplus-checkout`, {
             method: "POST",
             headers: { "content-type": "application/json", apikey: cfg.supabaseAnonKey, authorization: `Bearer ${s.session?.access_token}` },
-            body: JSON.stringify({ plan: btn.dataset.plan })
+            body: JSON.stringify({ plan: btn.dataset.plan, period })
           }).catch(() => null);
           const body = res ? await res.json().catch(() => ({})) : {};
           // Only ever leave the site for PayPlus's own payment pages.
           const payUrl = (() => { try { return new URL(body.url); } catch { return null; } })();
-          if (res?.ok && payUrl?.protocol === "https:" && /(^|\.)payplus\.co\.il$/.test(payUrl.hostname)) return location.assign(payUrl.href);
+          // A server that doesn't know yearly billing yet would open a monthly page; never send a yearly buyer there.
+          const periodOk = period === "month" || body.period === "year";
+          if (res?.ok && periodOk && payUrl?.protocol === "https:" && /(^|\.)payplus\.co\.il$/.test(payUrl.hostname)) return location.assign(payUrl.href);
           btn.disabled = false;
           const type = body?.error?.type;
           say($("payMsg"), "error", type === "payments_closed" || !res ? t("paySoon")
+            : res.ok && !periodOk ? t("yearSoon")
             : type === "already_licensed" || type === "already_subscribed" ? t("alreadyOwned")
             : t("payFailed") + (body?.error?.payplus ? ` (PayPlus: ${body.error.payplus})` : ""));
           $("payMsg").scrollIntoView({ block: "center" });

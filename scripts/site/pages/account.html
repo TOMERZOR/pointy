@@ -17,7 +17,7 @@
         <h2 id="planTitle"><i class="ph ph-crown-simple" aria-hidden="true"></i><span lang="he">המסלול שלך</span><span lang="en">Your plan</span></h2>
         <p class="tile-big" id="acctPlan"></p>
         <p class="tile-sub" id="acctPlanLine"></p>
-        <p class="warn" id="payFailed" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i><span><span lang="he">החיוב החודשי האחרון לא עבר. כדי שהמנוי ימשיך, עדכנו את כרטיס האשראי: כתבו לנו בוואטסאפ או במייל ונשלח קישור מאובטח לעדכון.</span><span lang="en">Your last monthly charge didn't go through. To keep your plan, update your card: message us on WhatsApp or by email and we'll send a secure link.</span></span></p>
+        <p class="warn" id="payFailed" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i><span><span lang="he">החיוב האחרון על המנוי לא עבר. כדי שהמנוי ימשיך, עדכנו את כרטיס האשראי: כתבו לנו בוואטסאפ או במייל ונשלח קישור מאובטח לעדכון.</span><span lang="en">Your last subscription charge didn't go through. To keep your plan, update your card: message us on WhatsApp or by email and we'll send a secure link.</span></span></p>
         <div class="tile-actions">
           <a class="btn btn-primary" id="upgradeLink" href="#upgrade"><span lang="he">שדרוג</span><span lang="en">Upgrade</span></a>
           <button class="btn btn-ghost" id="cancelSub" type="button" hidden><span lang="he">ביטול המנוי</span><span lang="en">Cancel subscription</span></button>
@@ -61,15 +61,23 @@
       </section>
 
       <!-- Upgrade -->
-      <section class="tile wide" id="upgrade" aria-labelledby="buyTitle" hidden>
+      <section class="tile wide" id="upgrade" aria-labelledby="buyTitle" data-billing hidden>
         <h2 id="buyTitle"><i class="ph ph-rocket-launch" aria-hidden="true"></i><span lang="he">שדרוג</span><span lang="en">Upgrade</span></h2>
+        <div class="billing" role="group" aria-label="חיוב חודשי או שנתי / Monthly or yearly billing" hidden>
+          <button type="button" data-set-period="month" aria-pressed="true"><span lang="he">חודשי</span><span lang="en">Monthly</span></button>
+          <button type="button" data-set-period="year" aria-pressed="false"><span lang="he">שנתי</span><span lang="en">Yearly</span><span class="save"><span lang="he">חוסכים 17%</span><span lang="en">Save 17%</span></span></button>
+        </div>
         <div class="buy-grid" id="buy">
           <button class="buy-option" type="button" data-plan="pro">
-            <b>Pro</b><span class="buy-price"><span lang="he">₪49 לחודש</span><span lang="en">₪49/month</span></span>
+            <b>Pro</b><span class="buy-price bill-m"><span lang="he">₪49 לחודש</span><span lang="en">₪49/month</span></span>
+            <span class="buy-price bill-y"><span lang="he">₪490 לשנה</span><span lang="en">₪490/year</span></span>
+            <span class="buy-save bill-y"><span lang="he">בערך ₪40.83 לחודש · חוסכים ₪98 (17%)</span><span lang="en">About ₪40.83/month · save ₪98 (17%)</span></span>
             <span class="buy-desc"><span lang="he">50 שאלות בחודש, עד 15 ביום</span><span lang="en">50 questions a month, up to 15 a day</span></span>
           </button>
           <button class="buy-option" type="button" data-plan="max">
-            <b>Max</b><span class="buy-price"><span lang="he">₪149 לחודש</span><span lang="en">₪149/month</span></span>
+            <b>Max</b><span class="buy-price bill-m"><span lang="he">₪149 לחודש</span><span lang="en">₪149/month</span></span>
+            <span class="buy-price bill-y"><span lang="he">₪1,490 לשנה</span><span lang="en">₪1,490/year</span></span>
+            <span class="buy-save bill-y"><span lang="he">בערך ₪124.17 לחודש · חוסכים ₪298 (17%)</span><span lang="en">About ₪124.17/month · save ₪298 (17%)</span></span>
             <span class="buy-desc"><span lang="he">150 שאלות בחודש ומצב מהיר</span><span lang="en">150 questions a month and fast mode</span></span>
           </button>
           <button class="buy-option" type="button" data-plan="developer">
@@ -77,7 +85,7 @@
             <span class="buy-desc"><span lang="he">מפתח API משלך, בלי מכסה</span><span lang="en">Your own API key, no quota</span></span>
           </button>
         </div>
-        <p class="hint"><span lang="he">המחירים כוללים מע"מ. Pro ו־Max מתחדשים אוטומטית כל חודש עד שמבטלים, ואפשר לבטל בכל רגע בדף הזה. Developer הוא תשלום אחד, בלי חידוש. התשלום מאובטח דרך PayPlus. <a href="terms.html">תנאי השימוש</a></span><span lang="en">Prices include VAT where it applies. Pro and Max renew automatically every month until you cancel, which you can do any time on this page. Developer is a single payment that never renews. Payment is secured by PayPlus. <a href="terms.html">Terms</a></span></p>
+        <p class="hint"><span lang="he">המחירים כוללים מע"מ. Pro ו־Max מתחדשים אוטומטית כל חודש, או כל שנה בחיוב שנתי (שנגבה מראש ל־12 חודשים, עם תזכורת במייל לפני החידוש), עד שמבטלים. אפשר לבטל בכל רגע בדף הזה. Developer הוא תשלום אחד, בלי חידוש. התשלום מאובטח דרך PayPlus. <a href="terms.html">תנאי השימוש</a></span><span lang="en">Prices include VAT where it applies. Pro and Max renew automatically every month, or every year on yearly billing (charged up front for 12 months, with an email reminder before it renews), until you cancel, which you can do any time on this page. Developer is a single payment that never renews. Payment is secured by PayPlus. <a href="terms.html">Terms</a></span></p>
       </section>
 
       <!-- Account details -->

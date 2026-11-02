@@ -136,12 +136,16 @@
   </section>
 
   <!-- Pricing -->
-  <section id="pricing" class="pt0">
+  <section id="pricing" class="pt0" data-billing>
     <div class="wrap">
       <div class="pricing-head reveal">
         <h2><span lang="he">מחירים</span><span lang="en">Pricing</span></h2>
         <p class="body"><span lang="he">בלי מפתח API ובלי הגדרות: נרשמים ושואלים. מתחילים בחינם, ומשדרגים רק כשרוצים יותר.</span><span lang="en">No API key, no setup: sign in and ask. Start free and upgrade only when you want more.</span></p>
         <p class="soon"><i class="ph ph-check-circle" aria-hidden="true"></i><span lang="he">המסלולים פתוחים. מתחילים בחינם, ואפשר לבטל מנוי בכל עת מדף החשבון.</span><span lang="en">Plans are open. Start free, and cancel a subscription any time from your account page.</span></p>
+        <div class="billing" role="group" aria-label="חיוב חודשי או שנתי / Monthly or yearly billing" hidden>
+          <button type="button" data-set-period="month" aria-pressed="true"><span lang="he">חודשי</span><span lang="en">Monthly</span></button>
+          <button type="button" data-set-period="year" aria-pressed="false"><span lang="he">שנתי</span><span lang="en">Yearly</span><span class="save"><span lang="he">חוסכים 17%</span><span lang="en">Save 17%</span></span></button>
+        </div>
       </div>
       <div class="plans">
       <article class="plan p-free reveal">
@@ -158,7 +162,12 @@
       <article class="plan p-pro reveal">
         <span class="badge"><span lang="he">הכי פופולרי</span><span lang="en">Most popular</span></span>
         <h3>Pro</h3>
-        <p class="price"><span lang="he">₪49</span><span lang="en">$13</span><small><span lang="he">לחודש</span><span lang="en">/month</span></small></p>
+        <p class="price bill-m"><span lang="he">₪49</span><span lang="en">$13</span><small><span lang="he">לחודש</span><span lang="en">/month</span></small></p>
+        <p class="price bill-y"><span lang="he">₪40.83</span><span lang="en">$10.83</span><small><span lang="he">לחודש, בחיוב שנתי</span><span lang="en">/month, billed yearly</span></small></p>
+        <div class="yearly bill-y">
+          <span><span lang="he"><b>₪490 לשנה</b> במקום ₪588</span><span lang="en"><b>$130 a year</b> instead of $156</span></span>
+          <span class="save-pill"><span lang="he">חוסכים ₪98 · חודשיים במתנה</span><span lang="en">Save $26 · 2 months free</span></span>
+        </div>
         <p class="tagline"><span lang="he">לשימוש יומיומי</span><span lang="en">For everyday use</span></p>
         <ul>
           <li><i class="ph ph-check" aria-hidden="true"></i><span><span lang="he">50 שאלות בחודש (עד 15 ביום)</span><span lang="en">50 questions a month (up to 15 a day)</span></span></li>
@@ -169,7 +178,12 @@
       </article>
       <article class="plan p-max reveal">
         <h3>Max</h3>
-        <p class="price"><span lang="he">₪149</span><span lang="en">$40</span><small><span lang="he">לחודש</span><span lang="en">/month</span></small></p>
+        <p class="price bill-m"><span lang="he">₪149</span><span lang="en">$40</span><small><span lang="he">לחודש</span><span lang="en">/month</span></small></p>
+        <p class="price bill-y"><span lang="he">₪124.17</span><span lang="en">$33.33</span><small><span lang="he">לחודש, בחיוב שנתי</span><span lang="en">/month, billed yearly</span></small></p>
+        <div class="yearly bill-y">
+          <span><span lang="he"><b>₪1,490 לשנה</b> במקום ₪1,788</span><span lang="en"><b>$400 a year</b> instead of $480</span></span>
+          <span class="save-pill"><span lang="he">חוסכים ₪298 · חודשיים במתנה</span><span lang="en">Save $80 · 2 months free</span></span>
+        </div>
         <p class="tagline"><span lang="he">למי שעובד עם זה כל היום</span><span lang="en">For working with it all day</span></p>
         <ul>
           <li><i class="ph ph-check" aria-hidden="true"></i><span><span lang="he">150 שאלות בחודש (עד 30 ביום)</span><span lang="en">150 questions a month (up to 30 a day)</span></span></li>
@@ -197,6 +211,7 @@
       </div>
       <div class="plan-notes reveal">
         <p><span lang="he">המחירים בשקלים וכוללים מע"מ. המנוי מתחדש אוטומטית כל חודש עד שמבטלים. אפשר לבטל בכל רגע מדף החשבון, בלי התחייבות, והגישה נמשכת עד סוף החודש ששולם. שאלות שלא נוצלו לא עוברות לחודש הבא. גרסת המפתחים היא תשלום אחד, בלי חידוש. פרטים ב<a href="terms.html">תנאי השימוש</a>.</span><span lang="en">Prices include VAT where it applies. Subscriptions renew automatically every month until you cancel. Cancel any time from your account page with no commitment; access lasts until the end of the paid month. Unused questions don't roll over. The Developer license is a single payment that never renews. Details in the <a href="terms.html">Terms</a>.</span></p>
+        <p><span lang="he"><b>חיוב שנתי:</b> Pro ב־₪490 ו־Max ב־₪1,490, נגבה מראש ל־12 חודשים ומתחדש כל שנה עד שמבטלים (נשלח תזכורת במייל לפני החידוש). המכסה נשארת חודשית: 50 או 150 שאלות בחודש. ביטול תוך 14 יום מהחיוב מחזיר את כל הסכום; אחר כך אפשר לקבל החזר על החודשים המלאים שעוד לא התחילו.</span><span lang="en"><b>Yearly billing:</b> Pro at ₪490 and Max at ₪1,490, charged up front for 12 months and renewing every year until you cancel (we email a reminder before it renews). Quotas stay monthly: 50 or 150 questions a month. Cancel within 14 days of the charge for a full refund; after that you can get back the whole months that haven't started yet.</span></p>
       </div>
     </div>
   </section>
@@ -233,7 +248,15 @@
       <h2 class="reveal"><span lang="he">שאלות</span><span lang="en">Questions</span></h2>
       <details class="reveal">
         <summary><span><span lang="he">כמה זה עולה?</span><span lang="en">How much does it cost?</span></span><i class="ph ph-plus" aria-hidden="true"></i></summary>
-        <p><span lang="he">מתחילים בחינם: 10 שאלות בחודש, בלי כרטיס אשראי ובלי מפתח API. מי שרוצה יותר עובר ל־Pro (₪49 לחודש) או ל־Max (₪149 לחודש). למי שיש מפתח API משלו יש גרסת מפתחים בתשלום חד־פעמי של ₪129.90, ואז Anthropic מחייבת אותו ישירות לפי שימוש. <a href="#pricing">מחירים</a></span><span lang="en">Start free: 10 questions a month, no credit card and no API key. Want more? Pro is ₪49/month and Max ₪149/month. If you have your own API key, the Developer license is a one-time ₪129.90, and Anthropic bills you directly for usage. <a href="#pricing">Pricing</a></span></p>
+        <p><span lang="he">מתחילים בחינם: 10 שאלות בחודש, בלי כרטיס אשראי ובלי מפתח API. מי שרוצה יותר עובר ל־Pro (₪49 לחודש) או ל־Max (₪149 לחודש), או משלם פעם בשנה וחוסך 17%: ₪490 או ₪1,490 לשנה. למי שיש מפתח API משלו יש גרסת מפתחים בתשלום חד־פעמי של ₪129.90, ואז Anthropic מחייבת אותו ישירות לפי שימוש. <a href="#pricing">מחירים</a></span><span lang="en">Start free: 10 questions a month, no credit card and no API key. Want more? Pro is ₪49/month and Max ₪149/month, or pay once a year and save 17%: ₪490 or ₪1,490 a year. If you have your own API key, the Developer license is a one-time ₪129.90, and Anthropic bills you directly for usage. <a href="#pricing">Pricing</a></span></p>
+      </details>
+      <details class="reveal">
+        <summary><span><span lang="he">מה ההבדל בין חיוב חודשי לשנתי?</span><span lang="en">Monthly or yearly: what's the difference?</span></span><i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p><span lang="he">אותו מסלול ואותה מכסה חודשית, רק משלמים פעם בשנה ומקבלים 12 חודשים במחיר של 10. Pro שנתי עולה ₪490 במקום ₪588 (בערך ₪40.83 לחודש), ו־Max שנתי ₪1,490 במקום ₪1,788 (בערך ₪124.17 לחודש), כלומר חוסכים 17%. הסכום נגבה מראש, והמנוי מתחדש כל שנה עד שמבטלים. 50 או 150 השאלות מתחדשות ב־1 לכל חודש, ושאלות שלא נוצלו לא נצברות.</span><span lang="en">Same plan, same monthly quota; you just pay once a year and get 12 months for the price of 10. Yearly Pro is ₪490 instead of ₪588 (about ₪40.83 a month), and yearly Max is ₪1,490 instead of ₪1,788 (about ₪124.17 a month): you save 17%. It's charged up front and renews every year until you cancel. Your 50 or 150 questions reset on the 1st of every month, and unused questions don't add up.</span></p>
+      </details>
+      <details class="reveal">
+        <summary><span><span lang="he">אפשר לבטל מנוי שנתי?</span><span lang="en">Can I cancel a yearly plan?</span></span><i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p><span lang="he">כן, בכל רגע מדף החשבון. תוך 14 יום מהחיוב (גם מחיוב של חידוש) מקבלים את כל הכסף בחזרה. אחר כך בוחרים: להמשיך עד סוף השנה ששולמה, או לקבל החזר על החודשים המלאים שעוד לא התחילו. לפני כל חידוש שנתי נשלח לכם תזכורת במייל. <a href="terms.html#refunds">ביטול והחזרים</a></span><span lang="en">Yes, any time from your account page. Within 14 days of the charge (a renewal charge too) you get all your money back. After that you choose: keep the plan until the end of the paid year, or get a refund for the whole months that haven't started yet. We email you a reminder before every yearly renewal. <a href="terms.html#refunds-en">Cancellations and refunds</a></span></p>
       </details>
       <details class="reveal">
         <summary><span><span lang="he">מה עם הפרטיות?</span><span lang="en">What about privacy?</span></span><i class="ph ph-plus" aria-hidden="true"></i></summary>
