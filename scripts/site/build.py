@@ -4,8 +4,11 @@
 Each page file starts with one JSON line: {"he": "<title>", "en": "<title>", "scripts": [...], "main_class": "..."}.
 {{KEY}} placeholders come from config.json; an empty value renders as a highlighted TODO and
 `--check` exits non-zero, so a page with missing legal details can't be published by accident.
+Every link to our own assets/*.css|js, in these pages and in the hand-written ones (index.html, download/),
+gets ?v=<content hash>, so a deploy never pairs new HTML with a stale cached stylesheet or script
+(GitHub Pages lets browsers cache them for 10 minutes).
 """
-import json, os, re, sys
+import hashlib, json, os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DOCS = os.path.normpath(os.path.join(HERE, "../../docs"))
@@ -95,10 +98,26 @@ def build(name):
     open(os.path.join(DOCS, name), "w").write(html)
     print("built", name)
 
+ASSET_REF = re.compile(r'((?:href|src)=")((?:\.\./)?assets/[\w.-]+\.(?:css|js))(?:\?v=\w+)?(")')
+
+def version_assets(path):
+    html = open(path).read()
+    def stamp(m):
+        file = os.path.normpath(os.path.join(os.path.dirname(path), m.group(2)))
+        digest = hashlib.sha256(open(file, "rb").read()).hexdigest()[:10]
+        return f"{m.group(1)}{m.group(2)}?v={digest}{m.group(3)}"
+    stamped = ASSET_REF.sub(stamp, html)
+    if stamped != html:
+        open(path, "w").write(stamped)
+
 if __name__ == "__main__":
     for name in sorted(os.listdir(os.path.join(HERE, "pages"))):
         if name.endswith(".html"):
             build(name)
+    for folder in (DOCS, os.path.join(DOCS, "download")):
+        for name in sorted(os.listdir(folder)):
+            if name.endswith(".html"):
+                version_assets(os.path.join(folder, name))
     if missing:
         print("missing config values:", ", ".join(sorted(missing)))
         if "--check" in sys.argv:

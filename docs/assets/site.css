@@ -403,22 +403,29 @@ a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-
 [data-period="year"] .bill-y { display: revert; }
 [data-period="year"] .bill-m { display: none; }
 .billing {
-  display: inline-flex; justify-self: start; gap: 4px; padding: 4px; margin: 6px 0 0;
+  display: inline-flex; justify-self: start; gap: 4px; padding: 5px; margin: 6px 0 0;
   border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line);
 }
+#pricing .billing { justify-self: center; margin-top: 22px; }
 .billing[hidden] { display: none; }
 .billing button {
-  display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 16px;
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 20px;
   border: 0; border-radius: 999px; background: transparent; color: var(--muted);
-  font: 600 15px/1 var(--font); cursor: pointer;
+  font: 650 16px/1 var(--font); cursor: pointer; transition: background .2s, color .2s, box-shadow .2s;
 }
 .billing button[aria-pressed="true"] { background: var(--surface); color: var(--text); box-shadow: 0 1px 4px rgb(0 0 0 / .12); }
 .billing button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
-.billing .save {
-  padding: 3px 9px; border-radius: 999px; font-size: 13px; font-weight: 800;
-  background: rgb(255 138 31 / .16); color: var(--accent-text);
+/* Yearly is the deal: orange even when it isn't picked, solid orange once it is. */
+.billing button[data-set-period="year"] { color: var(--accent-text); box-shadow: inset 0 0 0 1.5px rgb(255 138 31 / .6); }
+.billing button[data-set-period="year"]:hover { background: rgb(255 138 31 / .1); }
+.billing button[data-set-period="year"][aria-pressed="true"] {
+  background: var(--accent); color: var(--on-accent); box-shadow: 0 8px 20px -8px rgb(255 138 31 / .8);
 }
-.billing button[aria-pressed="true"] .save { background: var(--accent); color: var(--on-accent); }
+.billing .save {
+  padding: 4px 10px; border-radius: 999px; font-size: 13px; font-weight: 800;
+  background: var(--accent); color: var(--on-accent);
+}
+.billing button[aria-pressed="true"] .save { background: var(--on-accent); color: #fff; }
 .plan .price.bill-y { font-size: 46px; }
 .plan .price.bill-y small { display: block; margin: 8px 0 0; }
 .plan .yearly { margin: 8px 0 0; gap: 6px; justify-items: start; font-size: 15px; color: var(--muted); }
