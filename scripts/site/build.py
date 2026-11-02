@@ -38,6 +38,7 @@ SHELL = """<!doctype html>
       Pointy
     </a>
     <div class="nav-actions">
+      <a class="nav-link" href="about.html"><span lang="he">אודות</span><span lang="en">About</span></a>
       <button class="chip" id="langBtn" type="button" aria-label="Switch language">
         <i class="ph ph-translate" aria-hidden="true"></i>
         <span lang="he">English</span><span lang="en">עברית</span>
@@ -45,6 +46,7 @@ SHELL = """<!doctype html>
       <a class="chip" id="authChip" href="login.html">
         <i class="ph ph-user-circle" aria-hidden="true"></i><span lang="he">כניסה</span><span lang="en">Sign in</span>
       </a>
+      <a class="chip chip-cta" href="./#pricing"><span lang="he">נסו בחינם</span><span lang="en">Try it free</span></a>
     </div>
   </div>
 </header>
@@ -58,6 +60,7 @@ SHELL = """<!doctype html>
 <footer>
   <div class="wrap">
     <nav class="foot-links" aria-label="Legal">
+      <a href="about.html"><span lang="he">אודות</span><span lang="en">About</span></a>
       <a href="privacy.html"><span lang="he">פרטיות</span><span lang="en">Privacy</span></a>
       <a href="terms.html"><span lang="he">תנאי שימוש</span><span lang="en">Terms</span></a>
       <a href="cookies.html"><span lang="he">עוגיות</span><span lang="en">Cookies</span></a>
