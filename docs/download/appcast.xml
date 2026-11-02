@@ -3,18 +3,17 @@
   <channel>
     <title>Pointy</title>
     <item>
-      <title>Pointy 2.2.0</title>
-      <pubDate>Mon, 02 Nov 2026 09:24:19 +0000</pubDate>
-      <sparkle:version>7</sparkle:version>
-      <sparkle:shortVersionString>2.2.0</sparkle:shortVersionString>
+      <title>Pointy 2.2.1</title>
+      <pubDate>Mon, 02 Nov 2026 13:23:31 +0000</pubDate>
+      <sparkle:version>8</sparkle:version>
+      <sparkle:shortVersionString>2.2.1</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
       <description><![CDATA[<ul>
-<li>Max: longer questions, up to 60 steps and 6 hours.</li>
-<li>Max: export a finished guide as a PDF with screenshots.</li>
-<li>Max: save a guide and play it again from the menu bar, without using a question.</li>
-<li>Fast mode now only appears on plans that include it.</li>
+<li>Developer license now ₪199</li>
+<li>Clearer model names: Sonnet is the fastest to point, Haiku the lowest cost</li>
+<li>Fast mode explains it's about 2× quicker and counts as 2 questions</li>
 </ul>]]></description>
-      <enclosure url="https://trypointy.com/download/Pointy-2.2.0.dmg" type="application/octet-stream" sparkle:edSignature="D6UopPG4+rVpL+TUT4C28rP3t//wcg/hs30830XIShCTnBChq4mz7K71UiKG9UJ6dDjwKztrCAW7u3+YayMrDw==" length="3561562" />
+      <enclosure url="https://trypointy.com/download/Pointy-2.2.1.dmg" type="application/octet-stream" sparkle:edSignature="XrxlWcB2ISwaRJP7124/X+3dCmicnz8sWSs+eIejr5cFGe7Mgz+XS8dsxfas+xN+Xw+EF05iGiKbRs5wd0WeCw==" length="3613755" />
     </item>
   </channel>
 </rss>
