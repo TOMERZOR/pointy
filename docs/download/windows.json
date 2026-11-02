@@ -1,7 +1,7 @@
 {
-  "version": "1.2.0",
-  "url": "https://trypointy.com/download/PointySetup-1.2.0.exe",
-  "sha256": "572d65b63e171eb97515db139b0ca0285b8cc792646d8374c3ee7abbeca794d7",
-  "signature": "4YHSci2qao4pmp1/8jkpkL9V9wzVC+xTLIZXTIq4JaYwzAzo6Y20DfMY7YujeGGghVOrADKsI/0Uq/uIzMV7BQ==",
-  "notes": "Max: longer questions, up to 60 steps. Fast mode now only appears on plans that include it."
+  "version": "1.3.0",
+  "url": "https://trypointy.com/download/PointySetup-1.3.0.exe",
+  "sha256": "654c0551a8d26a1188601598e81225173252dd87c89fc80c7f9f97589978ace0",
+  "signature": "EVP8a4iXDdOC9QjrgBVzneslsSTSpzPs/Faoi6B/Sme8x2lm5qrKnmvd5R/bLXwEgUm+m+YjMTVXTqrLJp3kBg==",
+  "notes": "Max: export a finished guide as a PDF with screenshots, and save guides to play again from the tray, without using a question."
 }
