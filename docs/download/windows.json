@@ -1,7 +1,7 @@
 {
-  "version": "1.3.1",
-  "url": "https://trypointy.com/download/PointySetup-1.3.1.exe",
-  "sha256": "bbe873438a532f9732f28a4b6f569436508d5178048527431de8d7c51cd3aabf",
-  "signature": "qzx6tghexA33JxJsiCxD5ttQNLyF6bmkI0efY12GwZAoJf4mklqzMo+cUgPKL8BvCnEESUhD67EisgnSNOxOBA==",
-  "notes": "Developer license now ₪199. Clearer model names: Sonnet is the fastest to point, Haiku the lowest cost."
+  "version": "1.3.2",
+  "url": "https://trypointy.com/download/PointySetup-1.3.2.exe",
+  "sha256": "b97aaa00b887eebabf2a8a8139fe29c0ad15f5e13a37f40a408370950e90bfcc",
+  "signature": "sS62ln0aD6F0WPWnPQ44lw6JagtfF3RNKj0wm4kBqb/msVmYR8bVmCo69IUez7NdxDlNFRjz09D5GRP7Fb6nBg==",
+  "notes": "Manage account and Upgrade open the website signed in as you"
 }
