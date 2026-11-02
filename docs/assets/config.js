@@ -6,5 +6,5 @@ window.POINTY_CONFIG = {
   supabaseAnonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxyZm9oZmN3c2dqeGVxZGJxd2JnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM0NzMxNjMsImV4cCI6MjEwOTA0OTE2M30.Ocw3fZeL8XI6kgfzEnaLC7V1VJv9Hz7wbDNv4TOBil0",
   termsVersion: "2026-11-01",
   // Sign-in providers switched on in Supabase → Authentication → Sign In / Providers. Only these get a button.
-  oauthProviders: []
+  oauthProviders: ["google"]
 };
