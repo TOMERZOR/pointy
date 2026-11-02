@@ -259,44 +259,15 @@
           <li class="gstep reveal">
             <div class="gtext">
               <h3><span lang="he">פותחים בפעם הראשונה</span><span lang="en">Open it the first time</span></h3>
-              <p><span lang="he">פותחים את Pointy מתיקיית האפליקציות. macOS יציג הודעה ש־Pointy לא נפתח (Not Opened), כי הוא עוד לא עבר אישור של Apple. לוחצים „סיום" (Done). זה קורה רק בפעם הראשונה.</span><span lang="en">Open Pointy from Applications. macOS says Pointy was "Not Opened", because Apple hasn't checked it yet. Click Done. This only happens the first time.</span></p>
+              <p><span lang="he">פותחים את Pointy מתיקיית האפליקציות. macOS שואל אם לפתוח אפליקציה שהורדה מהאינטרנט ומציין ש־Apple בדקה אותה. לוחצים „פתח" (Open). זה קורה רק בפעם הראשונה.</span><span lang="en">Open Pointy from Applications. macOS asks whether to open an app downloaded from the Internet, and notes that Apple checked it. Click Open. This only happens the first time.</span></p>
             </div>
             <figure class="ishot" aria-hidden="true">
               <div class="malert">
                 <img src="icon.png" alt="" width="52" height="52">
-                <b>"Pointy" Not Opened</b>
-                <p>Apple could not verify "Pointy" is free of malware that may harm your Mac or compromise your privacy.</p>
-                <div class="mbtns"><span class="mbtn">Move to Trash</span><span class="mbtn is-target">Done</span></div>
+                <b>"Pointy" is an app downloaded from the Internet. Are you sure you want to open it?</b>
+                <p>Apple checked it for malicious software and none was detected.</p>
+                <div class="mbtns"><span class="mbtn">Cancel</span><span class="mbtn is-target">Open</span></div>
                 <svg class="ptr ptr-alert"><use href="#ptr"/></svg>
-              </div>
-            </figure>
-          </li>
-
-          <li class="gstep reveal">
-            <div class="gtext">
-              <h3><span lang="he">מאשרים ב„פרטיות ואבטחה"</span><span lang="en">Allow it in Privacy &amp; Security</span></h3>
-              <p><span lang="he">פותחים הגדרות המערכת ← פרטיות ואבטחה (Privacy &amp; Security), גוללים למטה עד השורה על Pointy, ולוחצים „פתח בכל זאת" (Open Anyway). מאשרים עם Touch ID או הסיסמה של המק, ו־Pointy נפתח.</span><span lang="en">Open System Settings → Privacy &amp; Security, scroll down to the line about Pointy and click Open Anyway. Confirm with Touch ID or your Mac password, and Pointy opens.</span></p>
-            </div>
-            <figure class="ishot" aria-hidden="true">
-              <div class="mwin msettings">
-                <div class="mside">
-                  <i class="tls"><i class="tl"></i><i class="tl"></i><i class="tl"></i></i>
-                  <span><i class="sq sq-gray"></i>General</span>
-                  <span><i class="sq sq-blue"></i>Wi‑Fi</span>
-                  <span><i class="sq sq-gray"></i>Displays</span>
-                  <span class="on"><i class="sq sq-blue"></i>Privacy &amp; Security</span>
-                  <span><i class="sq sq-gray"></i>Desktop &amp; Dock</span>
-                </div>
-                <div class="mmain">
-                  <b class="mtitle">Privacy &amp; Security</b>
-                  <small>Security</small>
-                  <div class="mrow">
-                    <span>"Pointy" was blocked to protect your Mac.</span>
-                    <span class="mbtn is-target">Open Anyway</span>
-                  </div>
-                  <div class="mrow mrow-dim"><span>Allow applications from</span><span class="mpop">App Store &amp; Known Developers</span></div>
-                </div>
-                <svg class="ptr ptr-settings"><use href="#ptr"/></svg>
               </div>
             </figure>
           </li>
@@ -477,10 +448,6 @@
       <details class="reveal">
         <summary><span><span lang="he">מה עם הפרטיות?</span><span lang="en">What about privacy?</span></span><i class="ph ph-plus" aria-hidden="true"></i></summary>
         <p><span lang="he">Pointy מצלם את המסך רק כשאתם שואלים, ושולח את הצילום ישירות מהמק שלכם ל־Claude של Anthropic עם המפתח שלכם. אנחנו לא מקבלים ולא שומרים צילומי מסך. השאלות האחרונות, ההגדרות ומונה העלויות נשמרים רק על המק (אפשר למחוק בהגדרות), והמפתח נשמר ב־Keychain. <a href="privacy.html">מדיניות הפרטיות</a></span><span lang="en">Pointy only captures your screen when you ask, and sends it straight from your Mac to Anthropic's Claude using your own key. We never receive or store screenshots. Your recent questions, settings and cost counter stay on your Mac (you can clear them in Settings), and your key stays in the Keychain. <a href="privacy.html">Privacy policy</a></span></p>
-      </details>
-      <details class="reveal">
-        <summary><span><span lang="he">למה macOS לא נותן לפתוח את האפליקציה?</span><span lang="en">Why won't macOS open it?</span></span><i class="ph ph-plus" aria-hidden="true"></i></summary>
-        <p><span lang="he">Pointy עוד לא עבר נוטריזציה של אפל. פותרים את זה פעם אחת דרך "פתח בכל זאת" בהגדרות פרטיות ואבטחה.</span><span lang="en">Pointy isn't notarized by Apple yet. Fix it once with "Open Anyway" in Privacy &amp; Security settings.</span></p>
       </details>
       <details class="reveal">
         <summary><span><span lang="he">זה עובד בווינדוס או באייפון?</span><span lang="en">Does it work on Windows or iPhone?</span></span><i class="ph ph-plus" aria-hidden="true"></i></summary>
