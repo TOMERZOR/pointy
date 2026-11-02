@@ -11,7 +11,7 @@
 <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
 <link rel="icon" href="icon.png">
 <link rel="stylesheet" href="vendor/phosphor/style.css">
-<link rel="stylesheet" href="assets/site.css?v=1afd51bad7">
+<link rel="stylesheet" href="assets/site.css?v=f4920c8691">
 </head>
 <body>
 <a class="skip" href="#main"><span lang="he">דילוג לתוכן</span><span lang="en">Skip to content</span></a>
@@ -38,6 +38,24 @@
 <main id="main" class="page dash-page">
   <div class="wrap">
 <div data-page="account">
+  <!-- First Google/Apple sign-in: the consents the email form collects, before anything else works. -->
+  <div class="card" id="consent" hidden>
+    <form id="consentForm" novalidate>
+      <h1><span lang="he">עוד צעד אחד</span><span lang="en">One more step</span></h1>
+      <p class="sub"><span lang="he">נכנסתם בתור</span><span lang="en">You're signed in as</span> <strong id="consentEmail" dir="ltr"></strong>.
+        <span lang="he">לפני שמתחילים:</span><span lang="en">Before you start:</span></p>
+      <label class="check"><input id="cAge" type="checkbox" required>
+        <span><span lang="he">אני בן/בת 18 ומעלה.</span><span lang="en">I am 18 or older.</span></span></label>
+      <label class="check"><input id="cTerms" type="checkbox" required>
+        <span><span lang="he">קראתי ואני מסכים/ה ל<a href="terms.html" target="_blank" rel="noopener">תנאי השימוש</a> ול<a href="privacy.html" target="_blank" rel="noopener">מדיניות הפרטיות</a>.</span><span lang="en">I agree to the <a href="terms.html" target="_blank" rel="noopener">Terms of Use</a> and <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</span></span></label>
+      <label class="check"><input id="cMarketing" type="checkbox">
+        <span><span lang="he">אשמח לקבל עדכונים ודיוור על Pointy במייל (לא חובה, אפשר לבטל בכל רגע).</span><span lang="en">Send me news and offers about Pointy by email (optional, unsubscribe any time).</span></span></label>
+      <button class="btn btn-primary" id="consentSubmit" type="submit"><span lang="he">המשך</span><span lang="en">Continue</span></button>
+      <p class="form-msg" id="consentMsg" role="alert" aria-live="assertive"></p>
+      <p class="card-foot"><button class="linklike" id="consentOut" type="button"><span lang="he">לא עכשיו, התנתקות</span><span lang="en">Not now, sign out</span></button></p>
+    </form>
+  </div>
+
   <div class="dash" id="signedIn" hidden>
     <header class="dash-head">
       <span class="avatar lg" id="acctInitial" aria-hidden="true"></span>
@@ -136,6 +154,19 @@
         </dl>
         <label class="check"><input id="marketing" type="checkbox">
           <span><span lang="he">לקבל עדכונים ודיוור על Pointy במייל</span><span lang="en">Email me news and offers about Pointy</span></span></label>
+        <!-- Google/Apple accounts have no password; the Mac and Windows apps sign in with one. -->
+        <div class="app-pw" id="appPw" hidden>
+          <p class="tile-sub"><span lang="he">נכנסתם עם Google או Apple. כדי להתחבר גם לאפליקציה, בחרו סיסמה. באפליקציה מתחברים עם האימייל</span><span lang="en">You signed in with Google or Apple. To sign in to the app too, choose a password. In the app, sign in with</span> <strong id="appPwEmail" dir="ltr"></strong> <span lang="he">והסיסמה הזו.</span><span lang="en">and this password.</span></p>
+          <div class="field">
+            <label for="appPassword"><span lang="he">סיסמה לאפליקציה</span><span lang="en">Password for the app</span></label>
+            <div class="pw-row">
+              <input id="appPassword" type="password" autocomplete="new-password" minlength="10" maxlength="72" dir="ltr" aria-describedby="appPwHint">
+              <button class="chip pw-toggle" type="button" data-toggle-pw="appPassword" aria-pressed="false" aria-label="Show password"><i class="ph ph-eye" aria-hidden="true"></i></button>
+            </div>
+            <p class="hint" id="appPwHint"><span lang="he">לפחות 10 תווים.</span><span lang="en">At least 10 characters.</span></p>
+          </div>
+          <button class="btn btn-primary" id="appPwSave" type="button"><span lang="he">שמירת סיסמה</span><span lang="en">Save password</span></button>
+        </div>
         <p class="form-msg" id="msg" role="status" aria-live="polite"></p>
         <div class="tile-actions">
           <a class="btn btn-ghost" href="login.html#forgot"><span lang="he">שינוי סיסמה</span><span lang="en">Change password</span></a>
@@ -188,7 +219,7 @@
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script src="assets/common.js?v=50aae05947"></script>
 <script src="vendor/supabase/supabase.js"></script>
-<script src="assets/config.js?v=929dbd3e98"></script>
-<script src="assets/auth.js?v=e2a08fa5be"></script>
+<script src="assets/config.js?v=33471a885a"></script>
+<script src="assets/auth.js?v=427d3f2707"></script>
 </body>
 </html>

@@ -44,6 +44,9 @@
       confirmCancel: "לבטל את המנוי? החיובים הבאים ייעצרו, והגישה תימשך עד סוף התקופה ששולמה.",
       cancelled: "המנוי בוטל. הגישה נמשכת עד סוף התקופה ששולמה.",
       alreadyOwned: "כבר יש לכם את זה.",
+      oauthFailed: "לא הצלחנו להתחבר. נסו שוב, או היכנסו עם אימייל.",
+      oauthExists: "לא הצלחנו ליצור חשבון. אם כבר נרשמתם עם האימייל הזה, היכנסו עם אימייל וסיסמה.",
+      appPwSaved: "הסיסמה נשמרה. עכשיו אפשר להתחבר איתה באפליקציה.",
       confirmUpgrade: "לשדרג ל־Max? תשלמו עכשיו את המחיר המלא של Max, הימים שנשארו לכם ב־Pro יתווספו כימי Max, ומנוי ה־Pro ייעצר אוטומטית.",
     },
     en: {
@@ -84,6 +87,9 @@
       confirmCancel: "Cancel your subscription? Future charges stop, and you keep access until the end of the paid period.",
       cancelled: "Subscription cancelled. You keep access until the end of the paid period.",
       alreadyOwned: "You already have this.",
+      oauthFailed: "We couldn't sign you in. Try again, or use your email.",
+      oauthExists: "We couldn't create an account. If you already signed up with this email, sign in with your email and password.",
+      appPwSaved: "Password saved. You can now sign in to the app with it.",
       confirmUpgrade: "Upgrade to Max? You'll pay the full Max price now, your unused Pro days are added as Max days, and your Pro subscription stops automatically.",
     }
   };
@@ -139,6 +145,25 @@
   const hash = new URLSearchParams(location.hash.slice(1));
   const linkError = hash.get("error_code");
   if (linkError) history.replaceState(null, "", location.pathname + location.search);
+  // A failed Google/Apple sign-in comes back with ?error=…&error_description=… (or in the fragment).
+  const oauthError = new URLSearchParams(location.search).get("error_description") || hash.get("error_description");
+  if (oauthError) history.replaceState(null, "", location.pathname);
+
+  // Sign in with Google / Apple: only the providers switched on in config.js get a button.
+  const providers = cfg.oauthProviders || [];
+  document.querySelectorAll("[data-oauth]").forEach(box => {
+    const buttons = [...box.querySelectorAll("[data-provider]")];
+    buttons.forEach(btn => {
+      btn.hidden = !providers.includes(btn.dataset.provider);
+      btn.addEventListener("click", async () => {
+        busy(btn, true);
+        // The account page finishes the sign-in, and asks a new Google/Apple user for the consents.
+        const { error } = await sb.auth.signInWithOAuth({ provider: btn.dataset.provider, options: { redirectTo: here("account.html") } });
+        if (error) { busy(btn, false); say($("msg"), "error", t("oauthFailed")); }
+      });
+    });
+    box.hidden = !buttons.some(b => !b.hidden);
+  });
 
   // Our email templates link straight to these pages with a one-time token_hash. The token is spent only
   // when this script runs, so mail scanners that merely fetch the link can't use it up first.
@@ -288,13 +313,55 @@
       }
       const { data } = await sb.auth.getSession();
       const user = data.session?.user;
-      if (!user) { $("signedOut").hidden = false; return; }
+      if (!user) {
+        $("signedOut").hidden = false;
+        // The database refuses a second account for the same person (e.g. a Google address already used to sign up).
+        if (oauthError) say($("outMsg"), "error", /database error/i.test(oauthError) ? t("oauthExists") : t("oauthFailed"));
+        return;
+      }
+      const { data: profile, error } = await sb.from("profiles")
+        .select("plan, marketing_opt_in, created_at, terms_version").eq("id", user.id).single();
+      if (error || !profile) { $("signedIn").hidden = false; return say(msg, "error", t("generic")); }
+
+      // A first Google/Apple sign-in hasn't given the age and terms consents yet. Nothing else works until it does.
+      if (!profile.terms_version) {
+        const form = $("consentForm"), cMsg = $("consentMsg");
+        $("consentEmail").textContent = user.email;
+        $("consent").hidden = false;
+        $("consentOut").addEventListener("click", async () => { await sb.auth.signOut(); location.replace(here("./")); });
+        form.addEventListener("submit", async e => {
+          e.preventDefault();
+          if (!$("cAge").checked) { $("cAge").focus(); return say(cMsg, "error", t("needAge")); }
+          if (!$("cTerms").checked) { $("cTerms").focus(); return say(cMsg, "error", t("needTerms")); }
+          busy($("consentSubmit"), true);
+          const { error } = await sb.rpc("accept_terms", { p_terms_version: cfg.termsVersion, p_age_confirmed: true, p_marketing: $("cMarketing").checked });
+          if (error) { busy($("consentSubmit"), false); return say(cMsg, "error", t("generic")); }
+          location.reload();
+        });
+        return;
+      }
+
       $("signedIn").hidden = false;
       $("acctEmail").textContent = $("acctEmail2").textContent = user.email;
       $("acctInitial").textContent = (user.email || "?")[0].toUpperCase();
-      const { data: profile, error } = await sb.from("profiles")
-        .select("plan, marketing_opt_in, created_at").eq("id", user.id).single();
-      if (error || !profile) return say(msg, "error", t("generic"));
+
+      // Google/Apple accounts have no password, and the apps sign in with one: offer to set it, once.
+      const passwordless = !(user.identities || []).some(i => i.provider === "email") && !user.user_metadata?.app_password_set;
+      if (passwordless) {
+        $("appPw").hidden = false;
+        $("appPwEmail").textContent = user.email;
+        $("appPwSave").addEventListener("click", async () => {
+          const pw = $("appPassword");
+          if (pw.value.length < 10) { invalid(pw, true); pw.focus(); return say(msg, "error", t("shortPw")); }
+          busy($("appPwSave"), true);
+          const { error } = await sb.auth.updateUser({ password: pw.value, data: { app_password_set: true } });
+          busy($("appPwSave"), false);
+          if (error) return say(msg, "error", explain(error));
+          pw.value = "";
+          $("appPw").hidden = true;
+          say(msg, "ok", t("appPwSaved"));
+        });
+      }
 
       const payment = new URLSearchParams(location.search).get("payment");
       if (payment === "success") say($("payMsg"), "ok", t("paySuccess"));
