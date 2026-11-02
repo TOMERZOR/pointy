@@ -20,8 +20,31 @@
   const listeners = [];
   const store = {
     get(k) { try { return localStorage.getItem(k); } catch { return null; } },
-    set(k, v) { try { localStorage.setItem(k, v); } catch {} }
+    set(k, v) { try { localStorage.setItem(k, v); } catch {} },
+    remove(k) { try { localStorage.removeItem(k); } catch {} }
   };
+
+  // Campaign tags (?utm_source=meta&...) on any page are kept for 30 days and sent with the sign-up,
+  // so we know which channel brought each account. The app opens the sign-up page in a new tab, so
+  // sessionStorage wouldn't survive the download. Nothing leaves the browser before sign-up.
+  const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content"];
+  const UTM_DAYS = 30;
+  const landed = new URLSearchParams(location.search);
+  if (UTM_KEYS.some(k => landed.get(k))) {
+    const tags = { at: Date.now() };
+    UTM_KEYS.forEach(k => { const v = (landed.get(k) || "").trim().slice(0, 100); if (v) tags[k] = v; });
+    store.set("pointy-utm", JSON.stringify(tags));
+  }
+  function utm() {
+    try {
+      const tags = JSON.parse(store.get("pointy-utm") || "null");
+      if (tags && Date.now() - tags.at < UTM_DAYS * 864e5) {
+        return Object.fromEntries(UTM_KEYS.filter(k => typeof tags[k] === "string").map(k => [k, tags[k]]));
+      }
+    } catch {}
+    store.remove("pointy-utm");
+    return {};
+  }
 
   // Language: ?lang=en wins (for English ads), then the saved choice, then Hebrew.
   const param = new URLSearchParams(location.search).get("lang");
@@ -71,7 +94,9 @@
     get lang() { return lang; },
     onLang(fn) { listeners.push(fn); fn(lang); },
     t(strings) { return strings[lang] ?? strings.he; },
-    toast
+    toast,
+    utm,
+    clearUtm() { store.remove("pointy-utm"); }
   };
 
   applyLang(lang);

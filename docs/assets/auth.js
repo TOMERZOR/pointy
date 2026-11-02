@@ -186,7 +186,9 @@
         password: pw.value,
         options: {
           emailRedirectTo: here("account.html"),
-          data: { age_confirmed: true, terms_version: cfg.termsVersion, marketing_opt_in: marketing.checked, locale: Pointy.lang }
+          // Where they came from (optional, never blocks sign-up): the ad link's tags and the survey answer.
+          data: { age_confirmed: true, terms_version: cfg.termsVersion, marketing_opt_in: marketing.checked, locale: Pointy.lang,
+                  ...Pointy.utm(), heard_from: form.querySelector("input[name=heard]:checked")?.value || null }
         }
       });
       busy(submit, false);
@@ -198,6 +200,7 @@
         return say(msg, "error", known ? explain(error) : t("cantCreate"));
       }
       // Supabase answers the same way for new and existing addresses, so this never confirms who has an account.
+      Pointy.clearUtm();
       $("sentTo").textContent = address;
       form.hidden = true;
       $("checkInbox").hidden = false;
