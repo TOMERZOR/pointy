@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <title>Pointy</title>
+    <item>
+      <title>Pointy 2.1.0</title>
+      <pubDate>Mon, 02 Nov 2026 07:27:42 +0000</pubDate>
+      <sparkle:version>6</sparkle:version>
+      <sparkle:shortVersionString>2.1.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<ul>
+<li>Pointy now updates itself: you'll be offered new versions right here.</li>
+<li>More accurate pointing in menus and panels (Premiere, After Effects).</li>
+</ul>]]></description>
+      <enclosure url="https://trypointy.com/download/Pointy-2.1.0.dmg" type="application/octet-stream" sparkle:edSignature="Di1Zj0lYUiNusVEd8FwtvX+0jVTg3X8+H4Di6CCaHntpOB9MS2XPoLZdf7K+Wn2ZdiXHVyOqmJ810TCkKvtsAQ==" length="3507702" />
+    </item>
+  </channel>
+</rss>
